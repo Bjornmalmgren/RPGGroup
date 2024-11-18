@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dtebmysjoxgi0"]
+
+[node name="Game Manager" type="Node2D"]
+
+[node name="Enemy Manager" type="Node2D" parent="."]
+
+[node name="VFX Manager" type="Node2D" parent="."]
+
+[node name="UI Manager" type="Node2D" parent="."]
+
+[node name="Resource Manager" type="Node2D" parent="."]
+
+[node name="Scene Manager" type="Node2D" parent="."]
+
+[node name="Audio Manager" type="Node2D" parent="."]
+
+[node name="Projectile Manager" type="Node2D" parent="."]
