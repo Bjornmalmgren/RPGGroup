@@ -17,7 +17,11 @@ public partial class GameManager : Node2D
 	ProjectileManager ProjectileManager { get; set; }
     [Export]
 	VFXManager VFXManager { get; set; }
-    // Called when the node enters the scene tree for the first time.
+	// Called when the node enters the scene tree for the first time.
+	bool isPaused = false;
+
+	GameManager instance;
+
     public override void _Ready()
 	{
 	}
@@ -38,5 +42,27 @@ public partial class GameManager : Node2D
 	{
 
 	}
+	GameManager getInstance() { 
+		return instance;
+	}
+	void startGame()
+	{
 
+	}
+	void pauseGame()
+	{
+
+	}
+	void saveGame()
+	{
+
+	}
+	void loadGame()
+	{
+
+	}
+	void endGame()
+	{
+
+	}
 }

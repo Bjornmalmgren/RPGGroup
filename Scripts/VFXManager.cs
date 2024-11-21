@@ -12,4 +12,12 @@ public partial class VFXManager : Node
 	public override void _Process(double delta)
 	{
 	}
+	void createEffect(string type, Vector3 position)
+	{
+
+	}
+	void removeEffect(string effectID)
+	{
+		
+	}
 }

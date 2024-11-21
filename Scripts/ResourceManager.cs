@@ -3,6 +3,7 @@ using System;
 
 public partial class ResourceManager : Node
 {
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -12,4 +13,10 @@ public partial class ResourceManager : Node
 	public override void _Process(double delta)
 	{
 	}
+
+	Texture2D loadTexture(string file)
+	{
+		return null;
+	}
+	
 }

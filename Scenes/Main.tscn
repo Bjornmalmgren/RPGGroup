@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtebmysjoxgi0"]
+[gd_scene load_steps=11 format=3 uid="uid://dtebmysjoxgi0"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_damya"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="2_mqu84"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_4d36w"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="7_4xuso"]
 [ext_resource type="Script" path="res://Scripts/ProjectileManager.cs" id="8_h4gfr"]
+[ext_resource type="Script" path="res://Scripts/SaveManager.cs" id="9_bvt7x"]
+[ext_resource type="Script" path="res://Scripts/StatsManager.cs" id="10_wifhm"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_damya")
@@ -32,3 +34,9 @@ script = ExtResource("7_4xuso")
 
 [node name="Projectile Manager" type="Node2D" parent="."]
 script = ExtResource("8_h4gfr")
+
+[node name="Save Manager" type="Node2D" parent="."]
+script = ExtResource("9_bvt7x")
+
+[node name="Stats Manager" type="Node2D" parent="."]
+script = ExtResource("10_wifhm")

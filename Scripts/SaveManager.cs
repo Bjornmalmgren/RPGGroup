@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class AudioManager : Node
+public partial class SaveManager : Node
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,24 +13,14 @@ public partial class AudioManager : Node
 	{
 	}
 
-	void playSoundEffect(string effect)
+	StatsManager get_instance()
+	{
+		return null;
+	}
+	void deleteSave(int slotID)
 	{
 
 	}
-	void stopSoundEffect() 
-	{ 
-	
-	}
-	void changeVolume(int volume)
-	{
 
-	}
-	void playMusic(string track)
-	{
 
-	}
-	void stopMusic() 
-	{ 
-	
-	}
 }

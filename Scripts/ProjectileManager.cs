@@ -3,6 +3,8 @@ using System;
 
 public partial class ProjectileManager : Node
 {
+	//do this class after the projectile class has been created
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -12,4 +14,5 @@ public partial class ProjectileManager : Node
 	public override void _Process(double delta)
 	{
 	}
+
 }

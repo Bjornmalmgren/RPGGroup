@@ -1,8 +1,12 @@
 using Godot;
 using System;
 
-public partial class AudioManager : Node
+public partial class Enemy : Node
 {
+	int health;
+	int speed;
+	int attackDamage;
+	int detectionRadius;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,24 +17,20 @@ public partial class AudioManager : Node
 	{
 	}
 
-	void playSoundEffect(string effect)
+	void reduceHealth(int amount)
 	{
 
 	}
-	void stopSoundEffect() 
-	{ 
-	
-	}
-	void changeVolume(int volume)
+	void onDeath()
 	{
 
 	}
-	void playMusic(string track)
+	void attack()
 	{
 
 	}
-	void stopMusic() 
-	{ 
-	
+	void move()
+	{
+
 	}
 }

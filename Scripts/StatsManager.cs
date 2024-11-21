@@ -1,8 +1,13 @@
 using Godot;
 using System;
 
-public partial class AudioManager : Node
+public partial class StatsManager : Node
 {
+	int enemiesKilled;
+	int money;
+	int playerHP;
+	int playerSpeed;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,24 +18,23 @@ public partial class AudioManager : Node
 	{
 	}
 
-	void playSoundEffect(string effect)
+	StatsManager getInstance()
+	{
+		return this;
+	}
+
+	int getStat(string statName)
+	{
+		return enemiesKilled;
+	}
+
+	void setStat(string statName, int value)
 	{
 
 	}
-	void stopSoundEffect() 
-	{ 
-	
-	}
-	void changeVolume(int volume)
+
+	void resetStats()
 	{
 
-	}
-	void playMusic(string track)
-	{
-
-	}
-	void stopMusic() 
-	{ 
-	
 	}
 }

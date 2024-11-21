@@ -12,4 +12,30 @@ public partial class UIManager : Node
 	public override void _Process(double delta)
 	{
 	}
+
+	void displayMainMenu()
+	{
+
+	}
+	void displayHUB()
+	{
+
+	}
+	void displayPauseMenu()
+	{
+
+	}
+	void updateHUD()
+	{
+
+	}
+	void hideMainMenu()
+	{
+
+	}
+	void hidePauseMenu()
+	{
+
+	}
 }
+
