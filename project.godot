@@ -18,3 +18,8 @@ config/icon="res://Sprites/icon.svg"
 [dotnet]
 
 project/assembly_name="RPGDemo"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
