@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtebmysjoxgi0"]
+[gd_scene load_steps=12 format=3 uid="uid://dtebmysjoxgi0"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_damya"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="2_mqu84"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/ProjectileManager.cs" id="8_h4gfr"]
 [ext_resource type="Script" path="res://Scripts/SaveManager.cs" id="9_bvt7x"]
 [ext_resource type="Script" path="res://Scripts/StatsManager.cs" id="10_wifhm"]
+[ext_resource type="Texture2D" uid="uid://cax2ss86nher6" path="res://Sprites/icon.svg" id="11_6thbe"]
 
 [node name="Game Manager" type="Node2D"]
 script = ExtResource("1_damya")
@@ -40,3 +41,8 @@ script = ExtResource("9_bvt7x")
 
 [node name="Stats Manager" type="Node2D" parent="."]
 script = ExtResource("10_wifhm")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("11_6thbe")
