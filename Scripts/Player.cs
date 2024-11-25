@@ -4,16 +4,48 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public  float Speed = 300.0f;
+	private  float movementSpeed = 300.0f;
+
+	[Export]
+	public int health;
+
+
 	
-	public void GetInput()
+	public void Move()
 	{
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
-		Velocity = inputDir * Speed;
+		if (Input.IsActionJustPressed("Left", false))
+		{
+
+			Scale = new Vector2(1, -1);
+			RotationDegrees = -180f;
+            GD.Print(Scale);
+        }
+		if (Input.IsActionJustPressed("Right", false))
+		{
+            Scale = new Vector2(1, 1);
+            RotationDegrees = 0f;
+            GD.Print(Scale);
+        }
+		//GD.Print(Scale);
+		Velocity = inputDir * movementSpeed;
+	}
+	public void OnDeath()
+	{
+
+	}
+	public void Attack()
+	{
+
 	}
 	public override void _PhysicsProcess(double delta)
 	{
-		GetInput();
+		Move();
 		MoveAndSlide();
+		if (health <=0)
+		{
+			OnDeath();
+		}
 	}
+	
 }
