@@ -96,7 +96,11 @@ public partial class Enemy : RigidBody2D
                     break;
             }
 
-		}
+		}else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
+		{
+            Vector2 direction = Position.DirectionTo(startingPos);
+            ApplyForce(direction * speed);
+        }
 		else
 		{
 			Vector2 direction = Position.DirectionTo(player.Position);
