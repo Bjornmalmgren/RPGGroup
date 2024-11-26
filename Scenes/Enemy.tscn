@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf5ee3c2kmsf4"]
+[gd_scene load_steps=4 format=3 uid="uid://bf5ee3c2kmsf4"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_h5ct4"]
-[ext_resource type="Texture2D" uid="uid://c4vwbryu4ntfk" path="res://Sprites/characters/C17_Wolf.png" id="2_3prg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
 size = Vector2(127, 128)
@@ -18,7 +17,6 @@ script = ExtResource("1_h5ct4")
 texture_filter = 1
 position = Vector2(-0.500004, 1.90735e-06)
 scale = Vector2(7.9375, 8)
-texture = ExtResource("2_3prg0")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
