@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://ofhhb44fofcx"]
+[gd_scene load_steps=120 format=4 uid="uid://cel72febcht67"]
 
 [ext_resource type="Texture2D" uid="uid://defn8nisi8r2f" path="res://Sprites/isometric/ground_tiles_sheets/dirt_64x32.png" id="1_6708f"]
 [ext_resource type="Texture2D" uid="uid://cx20nor7sf4ap" path="res://Sprites/isometric/ground_tiles_sheets/grass_dry_64x32.png" id="2_eymyu"]
