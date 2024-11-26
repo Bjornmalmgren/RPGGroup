@@ -5,24 +5,24 @@ public partial class GameManager : Node2D
 {
 	[Export]
 	SceneManager SceneManager { get; set; }
-    [Export]
+	[Export]
 	EnemyManager EnemyManager { get; set; }
-    [Export]
+	[Export]
 	UIManager UIManager { get; set; }
-    [Export]
+	[Export]
 	ResourceManager ResourceManager { get; set; }
-    [Export]
+	[Export]
 	AudioManager AudioManager { get; set; }
-    [Export]
+	[Export]
 	ProjectileManager ProjectileManager { get; set; }
-    [Export]
+	[Export]
 	VFXManager VFXManager { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	bool isPaused = false;
 
 	GameManager instance;
 
-    public override void _Ready()
+	public override void _Ready()
 	{
 	}
 

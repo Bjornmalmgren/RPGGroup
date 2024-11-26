@@ -1,0 +1,30 @@
+CC-BY 4.0 / CC-BY-SA 4.0
+
+fern (both types): (layer 1, frame 1 - 14, 99 - 112)
+	model and texture, from https://opengameart.org/content/uberpack-1, by Duion, CC0
+
+exotic shrub 1 (layer 1, frame 15 - 24)
+	model based on https://opengameart.org/content/tropical-shrubs, by yughues, CC0
+	texture replaced by me (own texture, CC0)
+
+grass bushes and wood parts (used in layer 1, frame 25 - 52, 65 - 76, 87 - 98 and 113 - 118)
+	 from blender project gooseberry plants and rocks collection: https://cloud.blender.org/p/cosmos-laundromat/56544960c379cf1796d85f9b, CC-BY 4.0 
+		(content from the blender cloud is normally CC BY 4.0 if not otherwise notified, see https://cloud.blender.org/terms-and-conditions)
+
+flowers (layer 1, frame 53 - 98): 
+	from my plant pack, https://opengameart.org/content/free-plant-pack, CC0
+
+cattail plant (layer 1, frame 119 - 127)
+	from https://www.blendswap.com/blends/view/68328, by MutantGenepool, CC-BY 3.0
+
+simple plant (layer 1, frame 128 - 136)
+	from https://www.blendswap.com/blends/view/68327, by MutantGenepool, CC-BY 3.0
+
+exotic plant (layer 2):
+	model from https://opengameart.org/content/tropical-plant-02-0, by yughues, CC0
+	texture replaced by me (from burningwell.org, CC0)
+
+bamboo plant (layer 3):
+	from https://opengameart.org/content/free-bamboo-v1, by yughues, CC0
+	
+
