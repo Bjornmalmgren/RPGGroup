@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf5ee3c2kmsf4"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_h5ct4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
+size = Vector2(127, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
+
+[node name="Enemy" type="RigidBody2D"]
+mass = 0.137
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_h5ct4")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.500004, 1.90735e-06)
+scale = Vector2(7.9375, 8)
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xbc31")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Detection Area" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_nth8j")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="moveTowardsPlayer"]
+[connection signal="body_exited" from="DetectionArea" to="." method="walkAround"]
