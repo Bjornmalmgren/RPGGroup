@@ -11,15 +11,21 @@ config_version=5
 [application]
 
 config/name="RPGDemo"
-run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
+
+[display]
+
+window/size/viewport_width=500
+window/size/viewport_height=300
+window/size/window_width_override=1000
+window/size/window_height_override=600
+window/per_pixel_transparency/allowed=true
 
 [dotnet]
 
 project/assembly_name="RPGDemo"
 
-[layer_names]
+[filesystem]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemy"
+import/blender/enabled=false
