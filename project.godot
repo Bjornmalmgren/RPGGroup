@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="RPGDemo"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
+
+[autoload]
+
+SignalBuss="*res://Scripts/SignalBuss.cs"
 
 [dotnet]
 

@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bll7qhrl2bxku"]
+
+[ext_resource type="Script" path="res://Scripts/Startmenu.cs" id="1_0p7dj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj62w"]
+bg_color = Color(0.913725, 0.352941, 0.737255, 0.356863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0agtk"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Startmenu" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0p7dj")
+
+[node name="ColorRect" type="ColorRect" parent="Startmenu"]
+layout_mode = 2
+color = Color(0.189538, 0.389249, 0.209721, 1)
+
+[node name="HorizontalContainer" type="HBoxContainer" parent="Startmenu"]
+layout_mode = 2
+
+[node name="MenuContainer" type="VBoxContainer" parent="Startmenu/HorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Startmenu/HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "RPG DEMO"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="Startmenu/HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0agtk")
+text = "Start Game"
+
+[node name="Quit" type="Button" parent="Startmenu/HorizontalContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj62w")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0agtk")
+text = "Quit"
+
+[connection signal="pressed" from="Startmenu/HorizontalContainer/MenuContainer/Start" to="Startmenu" method="OnStartPressed"]
+[connection signal="pressed" from="Startmenu/HorizontalContainer/MenuContainer/Quit" to="Startmenu" method="OnQuitPressed"]
