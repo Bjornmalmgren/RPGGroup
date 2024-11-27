@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://vr0be3xgaqgh"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_arns3"]
+[ext_resource type="Texture2D" uid="uid://chcr6htqvkv48" path="res://Sprites/characters/C39_Mage.png" id="2_e2f6x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bg4ls"]
+radius = 9.0
+height = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_arns3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bg4ls")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("2_e2f6x")
