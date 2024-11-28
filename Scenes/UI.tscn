@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://byqh5nml4idvr"]
+
+[ext_resource type="Texture2D" uid="uid://col8tpdl848dh" path="res://Sprites/Ui/Main_Button_Overlay.png" id="1_jncnb"]
+[ext_resource type="Texture2D" uid="uid://v6wwn4mu7ppa" path="res://Sprites/Ui/Main_Button_Fill.png" id="2_onr54"]
+[ext_resource type="Texture2D" uid="uid://04qb16s723x2" path="res://Sprites/Ui/Main_Button_Fill_Mana.png" id="3_4sakp"]
+[ext_resource type="Texture2D" uid="uid://38yurddiiovh" path="res://Sprites/Ui/Panel_1.png" id="4_ihcqv"]
+
+[node name="Ui" type="Node2D"]
+
+[node name="Health" type="TextureProgressBar" parent="."]
+offset_left = 5.0
+offset_top = 186.0
+offset_right = 218.0
+offset_bottom = 399.0
+scale = Vector2(0.5, 0.5)
+value = 100.0
+fill_mode = 3
+texture_over = ExtResource("1_jncnb")
+texture_progress = ExtResource("2_onr54")
+
+[node name="Mana" type="TextureProgressBar" parent="."]
+offset_left = 390.0
+offset_top = 192.0
+offset_right = 603.0
+offset_bottom = 405.0
+scale = Vector2(0.5, 0.5)
+value = 75.0
+fill_mode = 3
+texture_over = ExtResource("1_jncnb")
+texture_progress = ExtResource("3_4sakp")
+
+[node name="MainMenu" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 155.0
+offset_top = 22.0
+offset_right = 359.0
+offset_bottom = 238.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ihcqv")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 44.0
+offset_right = 144.0
+offset_bottom = 75.0
+text = "Continue"
+
+[node name="Button2" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 88.0
+offset_right = 125.0
+offset_bottom = 119.0
+text = "Save"
+
+[node name="Button3" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 137.0
+offset_right = 124.0
+offset_bottom = 168.0
+text = "Quit"
