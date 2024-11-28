@@ -7,6 +7,7 @@ public partial class ProjectileManager : Node
 	[Export]
 	RigidBody2D projectileBase {  get; set; }
     Godot.Collections.Array<RigidBody2D> activeProjectiles = new Godot.Collections.Array<RigidBody2D>();
+	int frame = 0;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -19,7 +20,21 @@ public partial class ProjectileManager : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+        if (frame >= 120)
+		{
+			frame = 0;
+			Projectile p = (Projectile)GetChild(0);
+	
+			//p.LinearVelocity = new Vector2(0, 0);
+			
+			//p.Position = new Vector2(0, 0);
+
+		}
+		frame++;
+	
 	}
+
+	
 	public void spawnProjectile(Vector2 spawnPosition, Vector2 destination)
 	{
 		GD.Print("attack received");
@@ -27,10 +42,12 @@ public partial class ProjectileManager : Node
         projectileBase.Position = spawnPosition;
        	
         Projectile p = (Projectile)projectileBase;
-		p.Position = spawnPosition;
+		
+		p.setPosition(spawnPosition);
 		p.setDestination(destination);
 		p.setStartingPos(spawnPosition);
 		
+
 		
 		
 

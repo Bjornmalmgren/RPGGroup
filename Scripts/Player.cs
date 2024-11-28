@@ -39,12 +39,18 @@ public partial class Player : CharacterBody2D
 	{
         var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
-		direction.X = Scale.Y;
+        
+        if (direction==Vector2.Zero)
+		{
+            direction.X = Scale.Y;
+        }
+        
 
         Vector2 pos = Position;
-		pos.X += direction.X*2;
-		pos.Y += direction.Y*2;
+		pos.X += direction.X+3;
+		pos.Y += direction.Y+3;
 
+		
         direction *= 10;
        
         signalBuss.EmitPlayerAttack(pos,direction);
