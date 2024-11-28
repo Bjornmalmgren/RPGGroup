@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="7_4xuso"]
 [ext_resource type="Script" path="res://Scripts/ProjectileManager.cs" id="8_h4gfr"]
 [ext_resource type="Script" path="res://Scripts/SaveManager.cs" id="9_bvt7x"]
-[ext_resource type="PackedScene" path="res://Scenes/Projectile.tscn" id="9_uc2wg"]
+[ext_resource type="PackedScene" uid="uid://cc0do1g5ndolt" path="res://Scenes/Projectile.tscn" id="9_uc2wg"]
 [ext_resource type="Script" path="res://Scripts/StatsManager.cs" id="10_wifhm"]
 
 [node name="Game Manager" type="Node2D" node_paths=PackedStringArray("ProjectileManager")]
