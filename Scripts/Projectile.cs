@@ -18,7 +18,7 @@ public partial class Projectile : RigidBody2D
 	public override void _Process(double delta)
 	{
         //direction = Position.DirectionTo(destination);
-        GD.Print(Position);
+        //GD.Print(Position);
         LinearVelocity = direction*300;
       
         

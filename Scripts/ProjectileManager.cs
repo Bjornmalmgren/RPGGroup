@@ -10,7 +10,11 @@ public partial class ProjectileManager : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-	}
+		Callable calls = new Callable(this,MethodName.spawnProjectile);
+
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        signalBuss.Connect(SignalBuss.SignalName.PlayerAttack, calls, (uint)GodotObject.ConnectFlags.Persist);
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -18,9 +22,10 @@ public partial class ProjectileManager : Node
 	}
 	public void spawnProjectile(Vector2 spawnPosition, Vector2 destination)
 	{
+		GD.Print("attack received");
 		
         projectileBase.Position = spawnPosition;
-       
+       	
         Projectile p = (Projectile)projectileBase;
 		p.Position = spawnPosition;
 		p.setDestination(destination);
