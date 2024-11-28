@@ -6,6 +6,9 @@ public partial class SignalBuss : Node
 	[Signal]
 	public delegate void StartButtonPressedEventHandler();
 
+	[Signal]
+	public delegate void PlayerAttackEventHandler();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,6 +23,10 @@ public partial class SignalBuss : Node
 	{
 		GD.Print("yes");
 		EmitSignal(nameof(StartButtonPressed));
+
+	}
+	public void EmitPlayerAttack()
+	{
 
 	}
 }

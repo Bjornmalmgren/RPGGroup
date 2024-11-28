@@ -9,6 +9,7 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public int health;
 
+	private int attackCD;
 
 	
 	public void Move()
@@ -42,6 +43,10 @@ public partial class Player : CharacterBody2D
 	{
 		Move();
 		MoveAndSlide();
+		if(Input.IsActionJustPressed("Attack",false))
+		{
+			Attack();
+		}
 		if (health <=0)
 		{
 			OnDeath();
