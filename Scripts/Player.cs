@@ -9,8 +9,9 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public int health;
 
+	private int attackCD;
 
-	
+	int frame;
 	public void Move()
 	{
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
@@ -19,15 +20,15 @@ public partial class Player : CharacterBody2D
 
 			Scale = new Vector2(1, -1);
 			RotationDegrees = -180f;
-            GD.Print(Scale);
+           
         }
 		if (Input.IsActionJustPressed("Right", false))
 		{
             Scale = new Vector2(1, 1);
             RotationDegrees = 0f;
-            GD.Print(Scale);
+            
         }
-		//GD.Print(Scale);
+		
 		Velocity = inputDir * movementSpeed;
 	}
 	public void OnDeath()
@@ -36,16 +37,39 @@ public partial class Player : CharacterBody2D
 	}
 	public void Attack()
 	{
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
+        
+        if (direction==Vector2.Zero)
+		{
+            direction.X = Scale.Y;
+        }
+        
 
-	}
+        Vector2 pos = Position;
+		pos.X += direction.X+3;
+		pos.Y += direction.Y+3;
+
+		
+        direction *= 10;
+       
+        signalBuss.EmitPlayerAttack(pos,direction);
+		
+    }
 	public override void _PhysicsProcess(double delta)
 	{
 		Move();
 		MoveAndSlide();
+		if(Input.IsActionJustPressed("Attack",false)&&frame>=120)
+		{
+			Attack();
+			frame = 0;
+		}
 		if (health <=0)
 		{
 			OnDeath();
 		}
-	}
+        frame++;
+    }
 	
 }
