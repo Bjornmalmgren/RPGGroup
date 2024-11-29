@@ -39,17 +39,44 @@ public partial class ProjectileManager : Node
 	{
 		GD.Print("attack received");
 		
-        projectileBase.Position = spawnPosition;
+        
        	
         Projectile p = (Projectile)projectileBase;
-		
-		p.setPosition(spawnPosition);
+        GpuParticles2D particles = (GpuParticles2D)p.GetChild(1);
+        if (destination.X / 10 == -1)
+        {
+            //RotationDegrees = 0;
+            particles.GlobalRotationDegrees = 0;
+            particles.GlobalRotationDegrees = 180;
+
+
+        }
+        else if (destination.X / 10 == 1)
+        {
+            particles.GlobalRotationDegrees = 0;
+
+
+
+        }
+        else if (destination.Y / 10 == -1)
+        {
+            particles.GlobalRotationDegrees = 0;
+            particles.GlobalRotationDegrees = 270;
+        }
+        else if (destination.Y / 10 == 1)
+        {
+            particles.GlobalRotationDegrees = 0;
+            particles.GlobalRotationDegrees = 90;
+        }
+        p.setPosition(spawnPosition);
 		p.setDestination(destination);
 		p.setStartingPos(spawnPosition);
-		
+        
+        
 
-		
-		
+
+
+
 
     }
 	void destroyProjectile()

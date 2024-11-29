@@ -18,42 +18,44 @@ public partial class Projectile : RigidBody2D
         
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	//public override void _Process(double delta)
-	//{
- //       //direction = Position.DirectionTo(destination);
- //       //GD.Print(Position);
-
-      
-
-
- //       if (Position == destination)
- //       {
- //           //this.QueueFree();
- //       }
- //   }
-
-    public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
     {
-        if (setposition)
-        {
-            Transform2D t;
-            t = new Transform2D(new Godot.Vector2(pos.X, pos.Y), new Godot.Vector2(pos.X, pos.Y), new Godot.Vector2(pos.X, pos.Y));
-            state.Transform = t;
-            setposition = false;
-        }
-        if (applyForce)
-        {
-            state.ApplyForce(destination * 20);
-            
-        }
-        else
-        {
-            //state.ApplyForce(new Godot.Vector2());
-        }
+        //direction = Position.DirectionTo(destination);
+        //GD.Print(Position);
         
-        
+        ApplyForce(destination * 200);
+
+
+
+        if (Position == destination)
+        {
+            //this.QueueFree();
+        }
     }
+
+    //public override void _IntegrateForces(PhysicsDirectBodyState2D state)
+    //{
+    //    //GD.Print(setposition);
+    //    if (setposition)
+    //    {
+
+    //        Transform2D t;
+    //        t = new Transform2D(new Godot.Vector2(pos.X, pos.Y), new Godot.Vector2(pos.X, pos.Y), new Godot.Vector2(pos.X, pos.Y));
+    //        //GD.Print(t);
+    //        state.Transform = t;
+    //        //GD.Print(state.Transform);
+    //        //setposition = false;
+    //    }
+
+    //    state.ApplyImpulse(destination*2);
+
+
+
+
+
+
+    //}
 
     public void setStartingPos(Godot.Vector2 pos)
     {
@@ -66,13 +68,17 @@ public partial class Projectile : RigidBody2D
         applyForce = true;
         destination = dest;
         direction = Position.DirectionTo(destination);
+        GD.Print(destination);
         
-
     }
 
     public void setPosition(Godot.Vector2 position)
     {
         setposition = true;
         pos = position;
+        RigidBody2D r = this;
+
+        r.Position = pos;
+        LinearVelocity = new Godot.Vector2(0,0);
     }
 }
