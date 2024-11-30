@@ -24,7 +24,7 @@ public partial class Startmenu : MarginContainer
 		GD.Print("yes");
 		
 
-    }
+	}
 	void OnQuitPressed()
 	{
 		GD.Print("no");

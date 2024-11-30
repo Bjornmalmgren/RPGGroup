@@ -20,14 +20,14 @@ public partial class Player : CharacterBody2D
 
 			Scale = new Vector2(1, -1);
 			RotationDegrees = -180f;
-            GD.Print(Scale);
-        }
+			GD.Print(Scale);
+		}
 		if (Input.IsActionJustPressed("Right", false))
 		{
-            Scale = new Vector2(1, 1);
-            RotationDegrees = 0f;
-            GD.Print(Scale);
-        }
+			Scale = new Vector2(1, 1);
+			RotationDegrees = 0f;
+			GD.Print(Scale);
+		}
 		//GD.Print(Scale);
 		Velocity = inputDir * movementSpeed;
 	}

@@ -461,7 +461,7 @@ sources/5 = SubResource("TileSetAtlasSource_ckitt")
 sources/6 = SubResource("TileSetAtlasSource_q1xyv")
 sources/7 = SubResource("TileSetAtlasSource_kwrfb")
 
-[node name="Node2D" type="Node2D"]
+[node name="Village" type="Node2D"]
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -1

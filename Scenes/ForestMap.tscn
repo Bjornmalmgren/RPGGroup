@@ -2499,7 +2499,7 @@ sources/6 = SubResource("TileSetAtlasSource_chn4e")
 sources/7 = SubResource("TileSetAtlasSource_vv7bk")
 sources/8 = SubResource("TileSetAtlasSource_hyhx0")
 
-[node name="Node2D" type="Node2D"]
+[node name="Forest" type="Node2D"]
 y_sort_enabled = true
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
