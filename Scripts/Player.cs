@@ -7,11 +7,17 @@ public partial class Player : CharacterBody2D
 	private  float movementSpeed = 300.0f;
 
 	[Export]
-	public int health;
+	public int health = 10;
 
 	private int attackCD;
 
 	int frame;
+    public override void _Ready()
+    {
+        Callable calls = new Callable(this, MethodName.Attacked);
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
+    }
 	public void Move()
 	{
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
@@ -55,6 +61,14 @@ public partial class Player : CharacterBody2D
 	   
 		signalBuss.EmitPlayerAttack(pos,direction);
 		
+	}
+	private void Attacked(int damage)
+	{
+		GD.Print(damage);
+		GD.Print(health);
+
+		health-=damage;
+		GD.Print(health);
 	}
 	public override void _PhysicsProcess(double delta)
 	{

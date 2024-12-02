@@ -9,6 +9,9 @@ public partial class SignalBuss : Node
 	[Signal]
 	public delegate void PlayerAttackEventHandler(Vector2 startPos,Vector2 destination);
 
+	[Signal]
+	public delegate void PlayerAttackedEventHandler(int damage);
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -30,5 +33,10 @@ public partial class SignalBuss : Node
 		
 		
 		EmitSignal(nameof(PlayerAttack),startPos,Dest);
+	}
+	public void EmitPlayerAttacked(int damage)
+	{
+		GD.Print(damage);
+		EmitSignal(nameof(PlayerAttacked),damage);
 	}
 }

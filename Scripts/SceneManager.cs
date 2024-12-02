@@ -22,8 +22,9 @@ public partial class SceneManager : Node
 		unLoadScene();
 		loadScene("Scenes/VillageMap.tscn");
 		AddScene("Scenes/player.tscn");
-		AddScene("Scenes/UI.tscn");
-	}
+		AddScene("Scenes/Enemy.tscn");
+        loadScene("Scenes/UI.tscn");
+    }
 	void loadScene(string sceneName)
 	{
 		if(currentScene!=sceneName)
