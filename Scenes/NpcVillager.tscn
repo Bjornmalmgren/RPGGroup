@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://Scripts/NpcFarmer.cs" id="1_kccoo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2d58b"]
-radius = 125.016
+radius = 254.002
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atxr0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="NpcVillager" type="Node2D"]
+[node name="NpcVillager" type="Node2D" groups=["npc"]]
 script = ExtResource("1_kccoo")
 
 [node name="Sprite" type="TextureRect" parent="."]

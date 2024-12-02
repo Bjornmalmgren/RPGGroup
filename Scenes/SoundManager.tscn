@@ -1,0 +1,147 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1qyjmjy1c7dk"]
+
+[ext_resource type="Script" path="res://Scripts/SoundManager.cs" id="1_fkc8p"]
+[ext_resource type="FontFile" uid="uid://cwukhhdhkwif8" path="res://fonts/OSerif.otf" id="2_bm11h"]
+
+[sub_resource type="Animation" id="Animation_mgcsk"]
+resource_name = "NpcConversationFour"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 9.73333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Please, go into the forest and destroy that cursed crystal. If you succeed, I'll make sure
+you're rewarded. I need to go now, the farm isn’t going to run itself!", ""]
+}
+
+[sub_resource type="Animation" id="Animation_nbr72"]
+resource_name = "NpcConversationOne"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Hello there, what brings you to our little village? Wait a moment… clean clothes and that
+colorful robe, you must be one of those wizards I've heard about!", ""]
+}
+
+[sub_resource type="Animation" id="Animation_uhg5y"]
+resource_name = "NpcConversationThree"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 14.8333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["I tried to figure out what was going on and went into the forest. That’s when I saw it, a red
+crystal. It seems to be driving the animals mad! I barely made it out alive, and a rabbit almost
+took my leg!
+I'll never go back there again. But you, you're a wizard, aren't you? Surely you know what to
+do about something like this?", ""]
+}
+
+[sub_resource type="Animation" id="Animation_yjkua"]
+resource_name = "NpcConversationTwo"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 14.8667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["I've heard that you wizards help us common folk. If that's true, then you're exactly what this
+town needs right now!
+You see, I run the farm over there, and lately, the animals from the forest have started
+attacking my livestock. Just the other day, I saw a squirrel chasing my cat. Now, that's
+downright unnatural!", ""]
+}
+
+[sub_resource type="Animation" id="Animation_n4pt6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_1r7xm"]
+resource_name = "NpcConversationFive"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["The animals are still crazy! Have you destroyed the crystal yet?", ""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6itdm"]
+_data = {
+"NpcConversationFive": SubResource("Animation_1r7xm"),
+"NpcConversationFour": SubResource("Animation_mgcsk"),
+"NpcConversationOne": SubResource("Animation_nbr72"),
+"NpcConversationThree": SubResource("Animation_uhg5y"),
+"NpcConversationTwo": SubResource("Animation_yjkua"),
+"RESET": SubResource("Animation_n4pt6")
+}
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_fkc8p")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6itdm")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(0, 200)
+transform = Transform2D(1, 0, 0, 1, 0, 200)
+
+[node name="subtitle_text" type="Label" parent="CanvasLayer"]
+top_level = true
+visibility_layer = 2
+y_sort_enabled = true
+offset_left = 224.0
+offset_top = 221.0
+offset_right = 425.0
+offset_bottom = 284.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_bm11h")
+theme_override_font_sizes/font_size = 20
