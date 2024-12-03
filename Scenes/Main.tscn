@@ -14,9 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://cc0do1g5ndolt" path="res://Scenes/Projectile.tscn" id="9_uc2wg"]
 [ext_resource type="Script" path="res://Scripts/StatsManager.cs" id="10_wifhm"]
 
-[node name="Game Manager" type="Node2D" node_paths=PackedStringArray("ProjectileManager")]
+[node name="Game Manager" type="Node2D" node_paths=PackedStringArray("SceneManager", "EnemyManager", "UIManager", "ResourceManager", "AudioManager", "ProjectileManager", "VFXManager")]
 script = ExtResource("1_damya")
+SceneManager = NodePath("Scene Manager")
+EnemyManager = NodePath("Enemy Manager")
+UIManager = NodePath("UI Manager")
+ResourceManager = NodePath("Resource Manager")
+AudioManager = NodePath("Audio Manager")
 ProjectileManager = NodePath("Projectile Manager")
+VFXManager = NodePath("VFX Manager")
 
 [node name="Enemy Manager" type="Node2D" parent="."]
 script = ExtResource("2_mqu84")
@@ -44,6 +50,7 @@ script = ExtResource("8_h4gfr")
 
 [node name="RigidBody2D" parent="Projectile Manager" instance=ExtResource("9_uc2wg")]
 position = Vector2(-72, -50)
+lock_rotation = true
 
 [node name="Save Manager" type="Node2D" parent="."]
 script = ExtResource("9_bvt7x")
