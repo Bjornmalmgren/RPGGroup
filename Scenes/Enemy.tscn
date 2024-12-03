@@ -7,6 +7,7 @@
 size = Vector2(127, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
+radius = 192.575
 
 [node name="Enemy" type="RigidBody2D"]
 mass = 0.137

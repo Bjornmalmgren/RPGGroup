@@ -6,14 +6,16 @@ using System.Xml.Serialization;
 public partial class EnemyManager : Node
 {
 	
-	[Export] private PackedScene enemyPrefab;
-	
+	[Export] private PackedScene enemyPrefabWolf;
+	[Export] private PackedScene enemyPrefabCultist;
+	public static EnemyManager Instance { get; private set; }
 	private List<Enemy> enemies = new List<Enemy>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		if (enemyPrefab == null)
+		Instance = this;
+		if (enemyPrefabWolf == null || enemyPrefabCultist == null )
 		{
 			GD.PrintErr("Enemy prefab is not set in the EnemyManager script!");
 		}
@@ -27,14 +29,25 @@ public partial class EnemyManager : Node
 
 	public Enemy spawnEnemy(string type)
 	{
-		if (enemyPrefab == null)
+		PackedScene selectedPrefab = null;
+		if (type == "WolfEnemy")
 		{
+			selectedPrefab = enemyPrefabWolf;
+		}
+		else if (type == "CultistEnemy")
+		{
+			selectedPrefab = enemyPrefabCultist;
+		}
+
+		if (selectedPrefab == null)
+		{
+			GD.PrintErr("No enemy prefab found for type: " + type);
 			return null;
 		}
 
-		Enemy enemy = (Enemy)enemyPrefab.Instantiate();
+		Enemy enemy = (Enemy)selectedPrefab.Instantiate();
 		enemies.Add(enemy);
-
+		
 		return enemy;
 	}
 	

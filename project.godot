@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 SignalBuss="*res://Scripts/SignalBuss.cs"
+EnemyManager="*res://Scripts/EnemyManager.cs"
 
 [display]
 

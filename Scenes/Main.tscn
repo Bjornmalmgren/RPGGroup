@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtebmysjoxgi0"]
+[gd_scene load_steps=14 format=3 uid="uid://dtebmysjoxgi0"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_damya"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="2_mqu84"]
+[ext_resource type="PackedScene" uid="uid://bf5ee3c2kmsf4" path="res://Scenes/Enemy.tscn" id="3_c1mil"]
 [ext_resource type="Script" path="res://Scripts/VFXManager.cs" id="3_jhymr"]
 [ext_resource type="Script" path="res://Scripts/UIManager.cs" id="4_y1261"]
+[ext_resource type="PackedScene" uid="uid://bk5isqpljr4wr" path="res://Scenes/cultistEnemy.tscn" id="4_ytblv"]
 [ext_resource type="Script" path="res://Scripts/ResourceManager.cs" id="5_lhb43"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_4d36w"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="7_4xuso"]
@@ -18,6 +20,8 @@ ProjectileManager = NodePath("Projectile Manager")
 
 [node name="Enemy Manager" type="Node2D" parent="."]
 script = ExtResource("2_mqu84")
+enemyPrefabWolf = ExtResource("3_c1mil")
+enemyPrefabCultist = ExtResource("4_ytblv")
 
 [node name="VFX Manager" type="Node2D" parent="."]
 script = ExtResource("3_jhymr")

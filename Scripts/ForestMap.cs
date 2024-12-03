@@ -33,7 +33,7 @@ public partial class ForestMap : Node2D
 		foreach (Vector2 spawnPosition in enemySpawnPositions)
 		{
 			// Spawna en fiende via EnemyManager
-			Enemy enemy = enemyManager.spawnEnemy("DefaultEnemy");
+			Enemy enemy = enemyManager.spawnEnemy("WolfEnemy");
 
 			if (enemy != null)
 			{
