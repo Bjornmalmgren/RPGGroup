@@ -19,6 +19,7 @@ config/icon="res://Sprites/icon.svg"
 
 SignalBuss="*res://Scripts/SignalBuss.cs"
 SoundManager="*res://Scenes/SoundManager.tscn"
+EnemyManager="*res://Scripts/EnemyManager.cs"
 
 [display]
 
