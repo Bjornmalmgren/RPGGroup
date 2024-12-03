@@ -32,8 +32,8 @@ public partial class Enemy : RigidBody2D
 		//moves the enemy every 30 frames
 		if(frame >= 30) {
 			frame = 0;
-            move();
-        }
+			move();
+		}
 		frame++;
 	}
 
@@ -59,53 +59,53 @@ public partial class Enemy : RigidBody2D
 	void walkAround()
 	{
 		//makes the enemy walk around again
-        moveToPlayer = false;
+		moveToPlayer = false;
 		player = null;
-    }
+	}
 
 	void move()
 	{
 		//moves the enemy eithr randomly or towards the player
 		if(moveToPlayer == false)
 		{
-            Random rand = new Random();
-            int moveDirection = rand.Next(1, 5);
-            switch (moveDirection)
-            {
-                //moves enemy up
-                case 1:
-                    ApplyForce(new Vector2(0, 2 * speed));
-                    //Position = new Vector2(Position.X, Position.Y + speed);
-                    break;
-                //moves enemy down
-                case 2:
-                    ApplyForce(new Vector2(0, -2 * speed));
-                    //Position = new Vector2(Position.X, Position.Y - speed);
-                    break;
-                //moves enemy to the right
-                case 3:
-                    ApplyForce(new Vector2(2 * speed, 0));
-                    //Position = new Vector2(Position.X+ speed, Position.Y);
-                    break;
-                //moves enemy to the left
-                case 4:
-                    ApplyForce(new Vector2(-2 * speed, 0));
-                    //Position = new Vector2(Position.X-speed, Position.Y);
-                    break;
-                default:
-                    break;
-            }
+			Random rand = new Random();
+			int moveDirection = rand.Next(1, 5);
+			switch (moveDirection)
+			{
+				//moves enemy up
+				case 1:
+					ApplyForce(new Vector2(0, 2 * speed));
+					//Position = new Vector2(Position.X, Position.Y + speed);
+					break;
+				//moves enemy down
+				case 2:
+					ApplyForce(new Vector2(0, -2 * speed));
+					//Position = new Vector2(Position.X, Position.Y - speed);
+					break;
+				//moves enemy to the right
+				case 3:
+					ApplyForce(new Vector2(2 * speed, 0));
+					//Position = new Vector2(Position.X+ speed, Position.Y);
+					break;
+				//moves enemy to the left
+				case 4:
+					ApplyForce(new Vector2(-2 * speed, 0));
+					//Position = new Vector2(Position.X-speed, Position.Y);
+					break;
+				default:
+					break;
+			}
 
 		}else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
 		{
-            Vector2 direction = Position.DirectionTo(startingPos);
-            ApplyForce(direction * speed);
-        }
+			Vector2 direction = Position.DirectionTo(startingPos);
+			ApplyForce(direction * speed);
+		}
 		else
 		{
 			Vector2 direction = Position.DirectionTo(player.Position);
-            ApplyForce(direction* speed);
-            
+			ApplyForce(direction* speed);
+			
 		}
 		
 	}

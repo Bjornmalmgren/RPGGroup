@@ -4,6 +4,7 @@ using System.Numerics;
 
 public partial class Projectile : RigidBody2D
 {
+
     Godot.Vector2 startingPosition;
     Godot.Vector2 destination;
     Godot.Vector2 direction;
@@ -14,9 +15,9 @@ public partial class Projectile : RigidBody2D
     public override void _Ready()
 	{
   
-        direction = Position.DirectionTo(destination);
-        
-    }
+		direction = Position.DirectionTo(destination);
+		
+	}
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
@@ -24,11 +25,14 @@ public partial class Projectile : RigidBody2D
         //direction = Position.DirectionTo(destination);
         //GD.Print(Position);
 
+
         if (applyForce == true)
         {
             ApplyForce(destination * 200);
         }
         
+
+
 
 
 
@@ -43,8 +47,10 @@ public partial class Projectile : RigidBody2D
 
     }
 
-    public void setStartingPos(Godot.Vector2 pos)
-    {
+
+	public void setStartingPos(Godot.Vector2 pos)
+	{
+
 
         startingPosition = pos;
         //GD.Print(Position);
@@ -66,4 +72,5 @@ public partial class Projectile : RigidBody2D
         r.Position = pos;
         LinearVelocity = new Godot.Vector2(0,0);
     }
+
 }

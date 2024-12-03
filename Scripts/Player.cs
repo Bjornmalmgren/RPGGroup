@@ -20,14 +20,14 @@ public partial class Player : CharacterBody2D
 
 			Scale = new Vector2(1, -1);
 			RotationDegrees = -180f;
-           
-        }
+		   
+		}
 		if (Input.IsActionJustPressed("Right", false))
 		{
-            Scale = new Vector2(1, 1);
-            RotationDegrees = 0f;
-            
-        }
+			Scale = new Vector2(1, 1);
+			RotationDegrees = 0f;
+			
+		}
 		
 		Velocity = inputDir * movementSpeed;
 	}
@@ -37,11 +37,12 @@ public partial class Player : CharacterBody2D
 	}
 	public void Attack()
 	{
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
-        
-        if (direction==Vector2.Zero)
+		
+		if (direction==Vector2.Zero)
 		{
+
             direction.X = Scale.Y;
         }
 
@@ -49,12 +50,14 @@ public partial class Player : CharacterBody2D
 		pos.X += direction.X*60;
 		pos.Y += direction.Y*100;
 
+
+
 		
-        direction *= 10;
-       
-        signalBuss.EmitPlayerAttack(pos,direction);
+		direction *= 10;
+	   
+		signalBuss.EmitPlayerAttack(pos,direction);
 		
-    }
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 		Move();
@@ -68,7 +71,7 @@ public partial class Player : CharacterBody2D
 		{
 			OnDeath();
 		}
-        frame++;
-    }
+		frame++;
+	}
 	
 }

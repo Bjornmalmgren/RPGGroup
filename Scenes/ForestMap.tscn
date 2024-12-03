@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://r6xnesrn7wl4"]
+[gd_scene load_steps=94 format=4 uid="uid://r6xnesrn7wl4"]
 
 [ext_resource type="Texture2D" uid="uid://yumbobo0fs3b" path="res://Sprites/isometric/ground_tiles_sheets/grass_medium_64x32.png" id="1_totfg"]
 [ext_resource type="Texture2D" uid="uid://ca8q0ld58gub3" path="res://Sprites/isometric/tiles_single/walls_1_64x32_shaded/walls_1_64x32_shaded-73.png" id="2_uskap"]
@@ -83,7 +83,6 @@
 [ext_resource type="Texture2D" uid="uid://d3dk5rht64bs4" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_shaded/trees_64x32_shaded-82.png" id="81_jvkjr"]
 [ext_resource type="Texture2D" uid="uid://c7p2jvw24rcy7" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_shaded/trees_64x32_shaded-83.png" id="82_xe5kc"]
 [ext_resource type="Texture2D" uid="uid://byr1v5y5ggy76" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_shaded/trees_64x32_shaded-84.png" id="83_3i0e1"]
-[ext_resource type="Texture2D" path="res://Sprites/isometric/StoneBlock.png" id="84_kfkmc"]
 [ext_resource type="Texture2D" uid="uid://d0nr1wu4nouym" path="res://Sprites/isometric/Bridge/SMallStoneBlock.png" id="85_if146"]
 [ext_resource type="Texture2D" uid="uid://ck8e7oavwpkcf" path="res://Sprites/isometric/Bridge/StoneBlock.png" id="86_mktk7"]
 [ext_resource type="Texture2D" uid="uid://c0gsja8liuodl" path="res://Sprites/isometric/Bridge/SmallStoneBlock2.png" id="87_qo07h"]
@@ -2499,7 +2498,7 @@ sources/6 = SubResource("TileSetAtlasSource_chn4e")
 sources/7 = SubResource("TileSetAtlasSource_vv7bk")
 sources/8 = SubResource("TileSetAtlasSource_hyhx0")
 
-[node name="Node2D" type="Node2D"]
+[node name="Forest" type="Node2D"]
 y_sort_enabled = true
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
@@ -10795,11 +10794,11 @@ texture = ExtResource("58_p7cst")
 
 [node name="StoneBlock" type="Sprite2D" parent="Bridge1"]
 position = Vector2(1634, 1221)
-texture = ExtResource("84_kfkmc")
+texture = ExtResource("86_mktk7")
 
 [node name="StoneBlock3" type="Sprite2D" parent="Bridge1"]
 position = Vector2(1753, 1282)
-texture = ExtResource("84_kfkmc")
+texture = ExtResource("86_mktk7")
 
 [node name="SMallStoneBlock" type="Sprite2D" parent="Bridge1"]
 position = Vector2(1604, 1242)
@@ -10887,7 +10886,7 @@ texture = ExtResource("86_mktk7")
 
 [node name="StoneBlock2" type="Sprite2D" parent="Bridge1"]
 position = Vector2(1288, 1399)
-texture = ExtResource("84_kfkmc")
+texture = ExtResource("86_mktk7")
 
 [node name="Brigde2" type="TileMapLayer" parent="."]
 
