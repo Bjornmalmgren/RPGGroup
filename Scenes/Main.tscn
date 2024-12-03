@@ -34,10 +34,9 @@ script = ExtResource("6_4d36w")
 [node name="Audio Manager" type="Node2D" parent="."]
 script = ExtResource("7_4xuso")
 
-[node name="Projectile Manager" type="Node2D" parent="." node_paths=PackedStringArray("projectileBase")]
+[node name="Projectile Manager" type="Node2D" parent="."]
 position = Vector2(0, 1)
 script = ExtResource("8_h4gfr")
-projectileBase = NodePath("RigidBody2D")
 
 [node name="RigidBody2D" parent="Projectile Manager" instance=ExtResource("9_uc2wg")]
 position = Vector2(-72, -50)

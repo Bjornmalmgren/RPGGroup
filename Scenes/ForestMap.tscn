@@ -1,5 +1,6 @@
-[gd_scene load_steps=94 format=4 uid="uid://r6xnesrn7wl4"]
+[gd_scene load_steps=95 format=4 uid="uid://r6xnesrn7wl4"]
 
+[ext_resource type="Script" path="res://Scripts/ForestMap.cs" id="1_7tkqo"]
 [ext_resource type="Texture2D" uid="uid://yumbobo0fs3b" path="res://Sprites/isometric/ground_tiles_sheets/grass_medium_64x32.png" id="1_totfg"]
 [ext_resource type="Texture2D" uid="uid://ca8q0ld58gub3" path="res://Sprites/isometric/tiles_single/walls_1_64x32_shaded/walls_1_64x32_shaded-73.png" id="2_uskap"]
 [ext_resource type="Texture2D" uid="uid://cbxpm5fyo2epr" path="res://Sprites/isometric/grassland_tileset_updated/water_v04.png" id="3_typkq"]
@@ -2500,6 +2501,7 @@ sources/8 = SubResource("TileSetAtlasSource_hyhx0")
 
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_7tkqo")
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -1

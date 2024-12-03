@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtukb2ogtndex"]
+[gd_scene load_steps=5 format=3 uid="uid://bf5ee3c2kmsf4"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_h5ct4"]
 [ext_resource type="Texture2D" uid="uid://jc0v7o8055qi" path="res://Sprites/isometric/wolf.png" id="2_ye0wy"]
