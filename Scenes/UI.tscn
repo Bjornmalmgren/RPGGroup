@@ -59,7 +59,7 @@ texture_progress = ExtResource("2_onr54")
 [node name="MainMenu" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 2
 texture = ExtResource("4_ihcqv")
 expand_mode = 5
 stretch_mode = 3
