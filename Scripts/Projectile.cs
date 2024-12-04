@@ -41,7 +41,12 @@ public partial class Projectile : RigidBody2D
 
     public void onCollision(Node body)
     {
-       
+
+        if(body.Name=="Enemy")
+        {
+            var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+            signalBuss.EmitEnemyHit(2);
+        }
         applyForce = false;
         this.Visible = false;
 

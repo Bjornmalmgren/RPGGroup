@@ -8,23 +8,23 @@ public partial class SceneManager : Node
 	public override void _Ready()
 	{
 		loadScene("Scenes/startmenu.tscn");
-		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-		signalBuss.Connect(SignalBuss.SignalName.StartButtonPressed, Callable.From(OnStartButtonPressed), (uint)GodotObject.ConnectFlags.OneShot);
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-	private void OnStartButtonPressed()
+	public void OnStartButtonPressed()
 	{
 		GD.Print("no");
 		unLoadScene();
 		loadScene("Scenes/VillageMap.tscn");
 		AddScene("Scenes/player.tscn");
-		//AddScene("Scenes/UI.tscn");
-	}
-	void loadScene(string sceneName)
+		AddScene("Scenes/Enemy.tscn");
+        loadScene("Scenes/UI.tscn");
+    }
+	public void loadScene(string sceneName)
 	{
 		if(currentScene!=sceneName)
 		{
@@ -35,7 +35,7 @@ public partial class SceneManager : Node
         }
 		
 	}
-	void unLoadScene()
+	public void unLoadScene()
 	{
         var children = GetChildren();
         foreach (var child in children)
