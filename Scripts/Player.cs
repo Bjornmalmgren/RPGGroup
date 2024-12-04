@@ -7,9 +7,9 @@ public partial class Player : CharacterBody2D
 	private  float movementSpeed = 300.0f;
 
 	[Export]
-	public int health = 10;
+	public int health = 110;
 
-	private int attackCD;
+	
 
 	int frame;
     public override void _Ready()
@@ -39,8 +39,10 @@ public partial class Player : CharacterBody2D
 	}
 	public void OnDeath()
 	{
-
-	}
+		GD.Print("dead");
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.EmitPlayerDeath();
+    }
 	public void Attack()
 	{
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
@@ -66,11 +68,12 @@ public partial class Player : CharacterBody2D
 	}
 	private void Attacked(int damage)
 	{
-		GD.Print(damage);
-		GD.Print(health);
+		
 
 		health-=damage;
-		GD.Print(health);
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.EmitPlayerLostHealth(health);
+      
 	}
 	public override void _PhysicsProcess(double delta)
 	{
@@ -84,6 +87,7 @@ public partial class Player : CharacterBody2D
 		if (health <=0)
 		{
 			OnDeath();
+			
 		}
 		frame++;
 	}

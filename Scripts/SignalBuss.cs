@@ -11,9 +11,18 @@ public partial class SignalBuss : Node
 
 	[Signal]
 	public delegate void PlayerAttackedEventHandler(int damage);
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    [Signal]
+    public delegate void PlayerLostHealthEventHandler(int health);
+    [Signal]
+    public delegate void EnemyHitEventHandler(int damage);
+    [Signal]
+	public delegate void UnpauseEventHandler();
+    [Signal]
+    public delegate void QuitEventHandler();
+    [Signal]
+    public delegate void PlayerDeathEventHandler();
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 	}
 
@@ -24,7 +33,7 @@ public partial class SignalBuss : Node
 
 	public void EmitStartButtonPressed()
 	{
-		GD.Print("yes");
+		
 		EmitSignal(nameof(StartButtonPressed));
 
 	}
@@ -38,5 +47,25 @@ public partial class SignalBuss : Node
 	{
 		GD.Print(damage);
 		EmitSignal(nameof(PlayerAttacked),damage);
+	}
+	public void EmitPlayerLostHealth(int health)
+	{
+		EmitSignal(nameof(PlayerLostHealth),health);
+	}
+	public void EmitUnpause()
+	{
+		EmitSignal(nameof(Unpause));
+	}
+	public void EmitQuit()
+	{
+		EmitSignal(nameof(Quit));
+	}
+	public void EmitPlayerDeath()
+	{
+		EmitSignal(nameof(PlayerDeath));
+	}
+	public void EmitEnemyHit(int damage)
+	{
+		EmitSignal(nameof(EnemyHit),damage);
 	}
 }

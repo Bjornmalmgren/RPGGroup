@@ -19,13 +19,17 @@ public partial class Enemy : RigidBody2D
 		//setting values and getting the area
 		startingPos = Position;
 		
-		health = 10;
+		health = 12;
 		speed = 200;
-		attackDamage = 1;
+		attackDamage = 10;
 		detectionRadius = 100;
 		area = (CollisionShape2D)this.GetChild(2).GetChild(0);
 		area.Scale = new Vector2(detectionRadius, detectionRadius);
-	}
+
+        Callable calls = new Callable(this, MethodName.reduceHealth);
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
+    }
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -36,11 +40,16 @@ public partial class Enemy : RigidBody2D
 			move();
 		}
 		frame++;
-		
+		if(health<=0)
+		{
+			
+			QueueFree();
+		}
 	}
 	void reduceHealth(int amount)
 	{
 		health -= amount;
+		GD.Print(health);
 	}
 	void lostTarget(Node2D body)
 	{
@@ -55,7 +64,7 @@ public partial class Enemy : RigidBody2D
 		if(body.Name=="Player")
 		{
             var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-			GD.Print(attackDamage);
+			
 			signalBuss.EmitPlayerAttacked(attackDamage);
         }
 		//later when making combat

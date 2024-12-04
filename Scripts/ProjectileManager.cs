@@ -37,7 +37,7 @@ public partial class ProjectileManager : Node
 	
 	public void spawnProjectile(Vector2 spawnPosition, Vector2 destination)
 	{
-		GD.Print("attack received");
+		
 		
         
        	
