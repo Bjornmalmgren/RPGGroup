@@ -48,13 +48,15 @@ public partial class Player : CharacterBody2D
 		
 		if (direction==Vector2.Zero)
 		{
-			direction.X = Scale.Y;
-		}
-		
 
-		Vector2 pos = Position;
-		pos.X += direction.X+3;
-		pos.Y += direction.Y+3;
+            direction.X = Scale.Y;
+        }
+
+        Vector2 pos = Position;
+		pos.X += direction.X*60;
+		pos.Y += direction.Y*100;
+
+
 
 		
 		direction *= 10;
