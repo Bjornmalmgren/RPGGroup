@@ -83,7 +83,7 @@ public partial class GameManager : Node2D
 	void PlayerDeath()
 	{
 		GD.Print("player died");
-		SceneManager.unLoadScene();
+		SceneManager.unLoadScenes();
 		SceneManager.loadScene("Scenes/startmenu.tscn");
     }
 	void pauseGame()

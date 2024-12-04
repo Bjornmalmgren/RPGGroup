@@ -39,7 +39,7 @@ public partial class Player : CharacterBody2D
 	}
 	public void OnDeath()
 	{
-		GD.Print("dead");
+		//GD.Print("dead");
         var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerDeath();
     }

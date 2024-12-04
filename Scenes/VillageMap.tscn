@@ -1,5 +1,6 @@
-[gd_scene load_steps=120 format=4 uid="uid://cel72febcht67"]
+[gd_scene load_steps=123 format=4 uid="uid://cel72febcht67"]
 
+[ext_resource type="Script" path="res://Scripts/villageScene.cs" id="1_8ura0"]
 [ext_resource type="Texture2D" uid="uid://defn8nisi8r2f" path="res://Sprites/isometric/ground_tiles_sheets/dirt_64x32.png" id="1_6708f"]
 [ext_resource type="Texture2D" uid="uid://cx20nor7sf4ap" path="res://Sprites/isometric/ground_tiles_sheets/grass_dry_64x32.png" id="2_eymyu"]
 [ext_resource type="Texture2D" uid="uid://sqmvnbwf35yc" path="res://Sprites/isometric/ground_tiles_sheets/dirt_dark_64x32.png" id="3_e1msb"]
@@ -112,6 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bxorh2gg2chsk" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_cloudy/trees_64x32_cloudy-10.png" id="108_21lyt"]
 [ext_resource type="Texture2D" uid="uid://dri7aa7v7m36b" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_cloudy/trees_64x32_cloudy-0.png" id="109_gvd41"]
 [ext_resource type="Texture2D" uid="uid://uftqwrxp53y4" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_shaded/trees_64x32_shaded-43.png" id="110_gkmti"]
+[ext_resource type="PackedScene" uid="uid://bi2u4rl0dbgb0" path="res://Scenes/NpcVillager.tscn" id="113_6ku85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc25a"]
 texture = ExtResource("1_6708f")
@@ -461,7 +463,11 @@ sources/5 = SubResource("TileSetAtlasSource_ckitt")
 sources/6 = SubResource("TileSetAtlasSource_q1xyv")
 sources/7 = SubResource("TileSetAtlasSource_kwrfb")
 
-[node name="Village" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7xbg"]
+size = Vector2(232, 161)
+
+[node name="Village" type="Node2D" groups=["maps"]]
+script = ExtResource("1_8ura0")
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -12723,3 +12729,19 @@ texture = ExtResource("37_8ye5o")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
 polygon = PackedVector2Array(-2726, 726, -3032, 508, -2968, 441, -2926, 406, -2865, 385, -2814, 381, -2817, 301, -2653, 246, -2482, 140, -2398, 150, -2385, 119, -2256, 148, -2179, 78, -2090, 61, -2040, 20, -1935, 3, -1857, -28, -1727, -45, -1678, -105, -1667, -197, -1541, -154, -1511, -234, -1432, -219, -1367, -305, -1270, -246, -1073, -259, -1002, -383, -924, -382, -873, -438, -876, -498, -823, -515, -776, -489, -698, -504, -672, -484, -650, -485, -520, -422, -479, -429, -440, -414, -350, -454, -422, -514, -351, -568, -263, -520, -211, -535, -193, -563, -129, -550, -111, -546, -127, -509, -114, -497, -128, -486, -128, -482, -118, -471, -128, -457, -158, -454, -156, -432, -142, -422, -88, -428, -27, -400, 87, -405, 122, -426, 129, -450, 170, -464, 167, -478, 100, -524, 135, -541, 199, -508, 251, -533, 255, -523, 249, -511, 266, -505, 308, -523, 308, -570, 344, -582, 341, -596, 256, -649, 376, -628, 413, -607, 436, -620, 475, -589, 528, -594, 548, -586, 537, -571, 595, -538, 649, -512, 659, -519, 684, -505, 786, -562, 734, -609, 796, -618, 839, -565, 917, -579, 969, -557, 839, -377, 924, -339, 838, -270, 802, -283, 793, -250, 794, -168, 832, -179, 883, -154, 864, -112, 951, -66, 962, -74, 1005, -51, 1107, -105, 1192, -61, 1231, -38, 1312, -89, 1292, -123, 1187, -188, 1241, -203, 1348, -205, 1377, -147, 1464, -100, 1507, -25, 1593, -30, 1884, -17, 1939, 24, 2011, -11, 2055, 30, 2163, 101, 2231, 122, 2263, 211, 2352, 189, 2442, 268, 2494, 328, 2538, 311, 2561, 372, 2482, 520, 2287, 616, 2101, 650, 1993, 768, 1566, 789, 1537, 820, 1575, 1066, 1648, 1134, 1663, 1212, 1495, 1225, 1421, 792, 1250, 663, 1106, 746, 875, 527, 849, 290, 527, 152, 446, 63, 265, 124, 109, 182, 68, 208, 97, 233, 92, 268, 53, 285, 28, 258, -96, 123, -254, 179, -336, 187, -349, 239, -472, 242, -681, 62, -805, 10, -955, -18, -1281, 51, -1485, 122, -1810, 216, -1895, 365, -2036, 432, -2199, 444, -2397, 480, -2620, 619, -2723, 729, -2846, 883, 38, 2322, 4748, 13, -105, -2510, -4687, -43, -2848, 880)
+
+[node name="NpcVillager" parent="." instance=ExtResource("113_6ku85")]
+z_index = 10
+position = Vector2(-173, -218)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(1565, 1139)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-16, 5.5)
+shape = SubResource("RectangleShape2D_p7xbg")
+
+[node name="Spawnpoint" type="Node2D" parent="Area2D"]
+position = Vector2(-62, -160)
+
+[connection signal="body_entered" from="Area2D" to="." method="playerCollision"]

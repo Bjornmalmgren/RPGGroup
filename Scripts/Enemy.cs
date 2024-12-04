@@ -49,11 +49,11 @@ public partial class Enemy : RigidBody2D
 	void reduceHealth(int amount)
 	{
 		health -= amount;
-		GD.Print(health);
+		//GD.Print(health);
 	}
 	void lostTarget(Node2D body)
 	{
-		GD.Print(body.Name);
+		//GD.Print(body.Name);
 	}
 	void onDeath()
 	{
@@ -71,7 +71,7 @@ public partial class Enemy : RigidBody2D
 	}
 	void moveTowardsPlayer(Node2D body)
 	{
-		GD.Print("found target");
+		//GD.Print("found target");
 		//makes the enemy walk towards the player
 		moveToPlayer = true;
 		player = body;
@@ -80,7 +80,7 @@ public partial class Enemy : RigidBody2D
 	void walkAround(Node2D body)
 	{
 		//makes the enemy walk around again
-		GD.Print("lost target");
+		//GD.Print("lost target");
 		moveToPlayer = false;
 		player = null;
 	}
