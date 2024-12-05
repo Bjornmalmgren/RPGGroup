@@ -6,7 +6,7 @@ public partial class ForestMap : Node2D
 {
 	private readonly Vector2[] wolfSpawnPositions = 
 	{
-		new Vector2(0, 24),
+		new Vector2(-28, 50),
 		new Vector2(30, 40),
 		new Vector2(50, 10)
 	};
@@ -45,7 +45,7 @@ public partial class ForestMap : Node2D
 	public override void _Ready()
 	{
 		GD.PrintErr("ForestMap loaded and ready!");
-		enemyManager = GetNode<EnemyManager>("Scenes/EnemyManager");
+		enemyManager = GetNode<EnemyManager>("/root/EnemyManager");
 
 		if (enemyManager == null)
 		{

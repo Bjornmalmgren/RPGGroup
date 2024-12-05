@@ -1,7 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1qyjmjy1c7dk"]
+[gd_scene load_steps=10 format=3 uid="uid://dyckkv2atnta1"]
 
 [ext_resource type="Script" path="res://Scripts/SoundManager.cs" id="1_fkc8p"]
 [ext_resource type="FontFile" uid="uid://cwukhhdhkwif8" path="res://fonts/OSerif.otf" id="2_bm11h"]
+
+[sub_resource type="Animation" id="Animation_1r7xm"]
+resource_name = "NpcConversationFive"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["The animals are still crazy! Have you destroyed the crystal yet?", ""]
+}
 
 [sub_resource type="Animation" id="Animation_mgcsk"]
 resource_name = "NpcConversationFour"
@@ -90,22 +106,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [""]
-}
-
-[sub_resource type="Animation" id="Animation_1r7xm"]
-resource_name = "NpcConversationFive"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/subtitle_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4.83333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": ["The animals are still crazy! Have you destroyed the crystal yet?", ""]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6itdm"]
