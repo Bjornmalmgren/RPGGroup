@@ -4,7 +4,6 @@ using static System.Formats.Asn1.AsnWriter;
 
 public partial class ForestMap : Node2D
 {
-	
 	private readonly Vector2[] enemySpawnPositions = 
 	{
 		new Vector2(0, 24),
