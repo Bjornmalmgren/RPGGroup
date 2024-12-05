@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://mgllc5182sc"]
+[gd_scene load_steps=5 format=3 uid="uid://bi2u4rl0dbgb0"]
 
 [ext_resource type="Texture2D" uid="uid://bdt1wt1qb8di" path="res://Sprites/characters/C29_Villager_A.png" id="1_gl2qs"]
 [ext_resource type="Script" path="res://Scripts/NpcFarmer.cs" id="1_kccoo"]

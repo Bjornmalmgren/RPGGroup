@@ -108,7 +108,7 @@ public partial class ForestMap : Node2D
 
 		Player rig = (Player)scene.GetChild(player);
 		Node2D pos = (Node2D)scene.GetChild(villageMap).GetChild(10).GetChild(1);
-		
+		GD.Print(scene.GetChild(villageMap).GetChild(10).GetChild(1).Name);
 		for (int i = 0; i < children; i++)
 		{
 			if (scene.GetChild(i).Name == this.Name)

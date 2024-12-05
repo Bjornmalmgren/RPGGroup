@@ -33,6 +33,10 @@ window/per_pixel_transparency/allowed=true
 
 project/assembly_name="RPGDemo"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false

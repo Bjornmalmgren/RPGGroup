@@ -113,7 +113,7 @@
 [ext_resource type="Texture2D" uid="uid://bxorh2gg2chsk" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_cloudy/trees_64x32_cloudy-10.png" id="108_21lyt"]
 [ext_resource type="Texture2D" uid="uid://dri7aa7v7m36b" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_cloudy/trees_64x32_cloudy-0.png" id="109_gvd41"]
 [ext_resource type="Texture2D" uid="uid://uftqwrxp53y4" path="res://Sprites/isometric/isometric_trees_pack/single/trees_64x32_shaded/trees_64x32_shaded-43.png" id="110_gkmti"]
-[ext_resource type="PackedScene" uid="uid://mgllc5182sc" path="res://Scenes/NpcVillager.tscn" id="113_6ku85"]
+[ext_resource type="PackedScene" uid="uid://bi2u4rl0dbgb0" path="res://Scenes/NpcVillager.tscn" id="113_6ku85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc25a"]
 texture = ExtResource("1_6708f")
@@ -12742,6 +12742,6 @@ position = Vector2(-16, 5.5)
 shape = SubResource("RectangleShape2D_p7xbg")
 
 [node name="Spawnpoint" type="Node2D" parent="Area2D"]
-position = Vector2(-62, -160)
+position = Vector2(-72, -163)
 
 [connection signal="body_entered" from="Area2D" to="." method="playerCollision"]

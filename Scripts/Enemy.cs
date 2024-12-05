@@ -43,7 +43,7 @@ public partial class Enemy : RigidBody2D
 		if(health<=0)
 		{
 			
-			QueueFree();
+			this.QueueFree();
 		}
 	}
 	void reduceHealth(int amount)
