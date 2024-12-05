@@ -15,10 +15,15 @@ public partial class EnemyManager : Node
 	public override void _Ready()
 	{
 		Instance = this;
-		if (enemyPrefabWolf == null || enemyPrefabCultist == null )
+		if (enemyPrefabWolf == null)
 		{
-			GD.PrintErr("Enemy prefab is not set in the EnemyManager script!");
+			GD.PrintErr("Wolf: Enemy prefab is not set in the EnemyManager script!");
 		}
+		if (enemyPrefabCultist == null )
+		{
+			GD.PrintErr("Cultist: Enemy prefab is not set in the EnemyManager script!");
+		}
+		
 		
 	}
 
