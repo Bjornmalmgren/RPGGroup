@@ -6,14 +6,17 @@ public partial class ForestMap : Node2D
 {
 	private readonly Vector2[] wolfSpawnPositions = 
 	{
-		new Vector2(-28, 50),
-		new Vector2(30, 40),
-		new Vector2(50, 10)
+		new Vector2(-2430, 350),
+		new Vector2(960, -730),
+		new Vector2(0, -170),
+		new Vector2(-1030, 1080),
+		new Vector2(-570, 2280),
+		new Vector2(3173, 265)
 	};
 	
 	private readonly Vector2[] cultistSpawnPositions = 
 	{
-		new Vector2(5, 5)
+		new Vector2(-280, -1343)
 	};
 	
 	private EnemyManager enemyManager;
@@ -27,6 +30,7 @@ public partial class ForestMap : Node2D
 			if (wolf != null)
 			{
 				wolf.Position = spawnPosition;
+				GD.Print($"Spawning enemy at: {spawnPosition}");
 				AddChild(wolf);
 			}
 		}

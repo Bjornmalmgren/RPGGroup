@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ccpddqm0ad2bt" path="res://Sprites/isometric/Cultist.png" id="2_5pe85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
-size = Vector2(127, 128)
+size = Vector2(22.5, 33)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
-radius = 192.575
+radius = 87.6926
 
 [node name="Cultist" type="RigidBody2D"]
 mass = 0.137
@@ -18,13 +18,11 @@ max_contacts_reported = 5
 script = ExtResource("1_cepiy")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xbc31")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2.06251, -6.92912)
-scale = Vector2(0.17981, 0.181225)
+scale = Vector2(0.09, 0.09)
 texture = ExtResource("2_5pe85")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -36,7 +34,6 @@ shape = SubResource("CircleShape2D_nth8j")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xbc31")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="moveTowardsPlayer"]
