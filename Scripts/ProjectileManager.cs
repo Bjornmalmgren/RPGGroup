@@ -6,7 +6,6 @@ public partial class ProjectileManager : Node
 	//do this class after the projectile class has been created
 	[Export]
 	RigidBody2D projectileBase {  get; set; }
-    Godot.Collections.Array<RigidBody2D> activeProjectiles = new Godot.Collections.Array<RigidBody2D>();
 	int frame = 0;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
