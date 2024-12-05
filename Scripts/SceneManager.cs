@@ -76,5 +76,15 @@ public partial class SceneManager : Node
 
 		}
 	}
-	
+	void AddSceneTo(string sceneName,Node2D node)
+ 	{
+		
+		if (currentScene != sceneName)
+		{
+			var child = GD.Load<PackedScene>(sceneName);
+			var instance = child.Instantiate();
+			node.AddChild(instance);
+
+		}
+  	}
 }
