@@ -76,7 +76,7 @@ public partial class SceneManager : Node
 
 		}
 	}
-	void AddSceneTo(string sceneName,Node2D node)
+	public void AddSceneTo(string sceneName,Node2D node)
  	{
 		
 		if (currentScene != sceneName)
