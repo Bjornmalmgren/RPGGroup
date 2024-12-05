@@ -21,7 +21,7 @@ public partial class EnemyManager : Node
 		}
 		if (enemyPrefabCultist == null )
 		{
-			GD.PrintErr("Cultist: Enemy prefab is not set in the EnemyManager script!");
+			GD.PrintErr("Enemy prefab is not set in the EnemyManager script!");
 		}
 		
 		

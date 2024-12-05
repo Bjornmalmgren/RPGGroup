@@ -4,25 +4,40 @@ using static System.Formats.Asn1.AsnWriter;
 
 public partial class ForestMap : Node2D
 {
-	private readonly Vector2[] enemySpawnPositions = 
+	private readonly Vector2[] wolfSpawnPositions = 
 	{
 		new Vector2(0, 24),
 		new Vector2(30, 40),
 		new Vector2(50, 10)
 	};
 	
+	private readonly Vector2[] cultistSpawnPositions = 
+	{
+		new Vector2(5, 5)
+	};
+	
 	private EnemyManager enemyManager;
 	
 	private void SpawnEnemies()
 	{
-		foreach (Vector2 spawnPosition in enemySpawnPositions)
+		foreach (Vector2 spawnPosition in wolfSpawnPositions)
 		{
-			Enemy enemy = enemyManager.spawnEnemy("WolfEnemy");
+			Enemy wolf = enemyManager.spawnEnemy("WolfEnemy");
 
-			if (enemy != null)
+			if (wolf != null)
 			{
-				enemy.Position = spawnPosition;
-				AddChild(enemy);
+				wolf.Position = spawnPosition;
+				AddChild(wolf);
+			}
+		}
+		foreach (Vector2 spawnPosition in cultistSpawnPositions)
+		{
+			Enemy cultist = enemyManager.spawnEnemy("CultistEnemy");
+
+			if (cultist != null)
+			{
+				cultist.Position = spawnPosition;
+				AddChild(cultist);
 			}
 		}
 	}
@@ -30,7 +45,7 @@ public partial class ForestMap : Node2D
 	public override void _Ready()
 	{
 		GD.PrintErr("ForestMap loaded and ready!");
-		enemyManager = GetNode<EnemyManager>("EnemyManager");
+		enemyManager = GetNode<EnemyManager>("Scenes/EnemyManager");
 
 		if (enemyManager == null)
 		{
