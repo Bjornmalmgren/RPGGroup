@@ -12744,4 +12744,9 @@ shape = SubResource("RectangleShape2D_p7xbg")
 [node name="Spawnpoint" type="Node2D" parent="Area2D"]
 position = Vector2(-72, -163)
 
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Wolf" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-1951, 175)
+
 [connection signal="body_entered" from="Area2D" to="." method="playerCollision"]
