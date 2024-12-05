@@ -24,12 +24,12 @@ public partial class GameManager : Node2D
 
 	public override void _Ready()
 	{
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-        signalBuss.Connect(SignalBuss.SignalName.Unpause, Callable.From(unpauseGame), (uint)GodotObject.ConnectFlags.Persist);
-        signalBuss.Connect(SignalBuss.SignalName.Quit, Callable.From(shutdown), (uint)GodotObject.ConnectFlags.OneShot);
-        signalBuss.Connect(SignalBuss.SignalName.PlayerDeath, Callable.From(PlayerDeath), (uint)GodotObject.ConnectFlags.Persist);
-        signalBuss.Connect(SignalBuss.SignalName.StartButtonPressed, Callable.From(startGame), (uint)GodotObject.ConnectFlags.OneShot);
-    }
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.Connect(SignalBuss.SignalName.Unpause, Callable.From(unpauseGame), (uint)GodotObject.ConnectFlags.Persist);
+		signalBuss.Connect(SignalBuss.SignalName.Quit, Callable.From(shutdown), (uint)GodotObject.ConnectFlags.OneShot);
+		signalBuss.Connect(SignalBuss.SignalName.PlayerDeath, Callable.From(PlayerDeath), (uint)GodotObject.ConnectFlags.Persist);
+		signalBuss.Connect(SignalBuss.SignalName.StartButtonPressed, Callable.From(startGame), (uint)GodotObject.ConnectFlags.OneShot);
+	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -42,24 +42,24 @@ public partial class GameManager : Node2D
 		//      }
 		if(frame >= 120)
 		{
-            if (Input.IsKeyPressed(Key.Escape) && GetTree().Paused == false)
-            {
-                pauseGame();
+			if (Input.IsKeyPressed(Key.Escape) && GetTree().Paused == false)
+			{
+				pauseGame();
 				GD.Print("Paused");
-                frame = 0;
-            }
-            
+				frame = 0;
+			}
 			
-        }
+			
+		}
 		frame++;
-        if (Input.IsKeyPressed(Key.Escape)&& GetTree().Paused == true&&frame>=120)
-        {
-            unpauseGame();
-            GD.Print("unpause");
+		if (Input.IsKeyPressed(Key.Escape)&& GetTree().Paused == true&&frame>=120)
+		{
+			unpauseGame();
+			GD.Print("unpause");
 			frame = 0;
-        }
+		}
 
-    }
+	}
 	void initialize()
 	{
 
@@ -85,7 +85,7 @@ public partial class GameManager : Node2D
 		GD.Print("player died");
 		SceneManager.unLoadScenes();
 		SceneManager.loadScene("Scenes/startmenu.tscn");
-    }
+	}
 	void pauseGame()
 	{
 		
@@ -98,10 +98,10 @@ public partial class GameManager : Node2D
 	}
 	void unpauseGame()
 	{
-        var pauseUi = SceneManager.GetChild(1).GetChild(0).GetChild(0).GetChild(1);
-        TextureRect pause = (TextureRect)pauseUi;
-        pause.Visible = false;
-        GetTree().Paused = false;
+		var pauseUi = SceneManager.GetChild(1).GetChild(0).GetChild(0).GetChild(1);
+		TextureRect pause = (TextureRect)pauseUi;
+		pause.Visible = false;
+		GetTree().Paused = false;
 	}
 	void saveGame()
 	{

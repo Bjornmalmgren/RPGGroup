@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf5ee3c2kmsf4"]
+[gd_scene load_steps=5 format=3 uid="uid://bs1a1py3sq54b"]
 
-[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_h5ct4"]
-[ext_resource type="Texture2D" uid="uid://jc0v7o8055qi" path="res://Sprites/isometric/wolf.png" id="2_ye0wy"]
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_cepiy"]
+[ext_resource type="Texture2D" uid="uid://ccpddqm0ad2bt" path="res://Sprites/isometric/Cultist.png" id="2_5pe85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
 size = Vector2(127, 128)
@@ -9,13 +9,13 @@ size = Vector2(127, 128)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
 radius = 192.575
 
-[node name="Enemy" type="RigidBody2D"]
+[node name="Cultist" type="RigidBody2D"]
 mass = 0.137
 gravity_scale = 0.0
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 5
-script = ExtResource("1_h5ct4")
+script = ExtResource("1_cepiy")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_xbc31")
 texture_filter = 1
 position = Vector2(-2.06251, -6.92912)
 scale = Vector2(0.17981, 0.181225)
-texture = ExtResource("2_ye0wy")
+texture = ExtResource("2_5pe85")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 2

@@ -22,39 +22,39 @@ public partial class SceneManager : Node
 		GD.Print("no");
 		unLoadScenes();
 		loadScene("Scenes/VillageMap.tscn");
-      
-        loadScene("Scenes/player.tscn");
+	  
+		loadScene("Scenes/player.tscn");
 		AddScene("Scenes/Enemy.tscn");
-        loadScene("Scenes/UI.tscn");
-        startSceneLoaded = true;
-    }
+		loadScene("Scenes/UI.tscn");
+		startSceneLoaded = true;
+	}
 	public void loadScene(string sceneName)
 	{
 		if(currentScene!=sceneName)
 		{
-            var child = GD.Load<PackedScene>(sceneName);
-            var instance = child.Instantiate();
-            AddChild(instance);
+			var child = GD.Load<PackedScene>(sceneName);
+			var instance = child.Instantiate();
+			AddChild(instance);
 			currentScene= sceneName;
-        }
+		}
 		
 	}
 	public void unLoadScenes()
 	{
-        
-        var children = GetChildren();
-        foreach (var child in children)
-        {
-            RemoveChild(child);
-        }
-    }
-    public void unLoadScene(int index)
-    {
-        
-        var child = GetChild(index);
+		
+		var children = GetChildren();
+		foreach (var child in children)
+		{
+			RemoveChild(child);
+		}
+	}
+	public void unLoadScene(int index)
+	{
+		
+		var child = GetChild(index);
 		RemoveChild(child);
-    }
-    void AddScene(string sceneName)
+	}
+	void AddScene(string sceneName)
 	{
 		if (currentScene != sceneName)
 		{
@@ -70,11 +70,11 @@ public partial class SceneManager : Node
 				}
 			}
 
-            var grandchild = GD.Load<PackedScene>(sceneName);
+			var grandchild = GD.Load<PackedScene>(sceneName);
 			var instance = grandchild.Instantiate();
 			mapchild.AddChild(instance);
 
-        }
-    }
+		}
+	}
 	
 }

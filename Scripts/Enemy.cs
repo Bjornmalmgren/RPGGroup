@@ -26,10 +26,10 @@ public partial class Enemy : RigidBody2D
 		area = (CollisionShape2D)this.GetChild(2).GetChild(0);
 		area.Scale = new Vector2(detectionRadius, detectionRadius);
 
-        Callable calls = new Callable(this, MethodName.reduceHealth);
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-        signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
-    }
+		Callable calls = new Callable(this, MethodName.reduceHealth);
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
+	}
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -63,10 +63,10 @@ public partial class Enemy : RigidBody2D
 	{
 		if(body.Name=="Player")
 		{
-            var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+			var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 			
 			signalBuss.EmitPlayerAttacked(attackDamage);
-        }
+		}
 		//later when making combat
 	}
 	void moveTowardsPlayer(Node2D body)
@@ -118,7 +118,8 @@ public partial class Enemy : RigidBody2D
 					break;
 			}
 
-		}else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
+		}
+		else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
 		{
 			Vector2 direction = Position.DirectionTo(startingPos);
 			ApplyForce(direction * speed);
