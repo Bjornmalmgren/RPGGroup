@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://byqh5nml4idvr"]
+[gd_scene load_steps=9 format=3 uid="uid://byqh5nml4idvr"]
 
 [ext_resource type="Texture2D" uid="uid://col8tpdl848dh" path="res://Sprites/Ui/Main_Button_Overlay.png" id="1_jncnb"]
+[ext_resource type="Script" path="res://Scripts/Ui.cs" id="1_llfi4"]
 [ext_resource type="Texture2D" uid="uid://v6wwn4mu7ppa" path="res://Sprites/Ui/Main_Button_Fill.png" id="2_onr54"]
 [ext_resource type="Texture2D" uid="uid://04qb16s723x2" path="res://Sprites/Ui/Main_Button_Fill_Mana.png" id="3_4sakp"]
 [ext_resource type="Texture2D" uid="uid://38yurddiiovh" path="res://Sprites/Ui/Panel_1.png" id="4_ihcqv"]
@@ -29,7 +30,9 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 0, 0, 1)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_llfi4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -54,8 +57,9 @@ texture_over = ExtResource("1_jncnb")
 texture_progress = ExtResource("2_onr54")
 
 [node name="MainMenu" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 2
 texture = ExtResource("4_ihcqv")
 expand_mode = 5
 stretch_mode = 3
@@ -92,6 +96,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_l53d4")
 text = "Quit"
 
 [node name="Mana" type="TextureProgressBar" parent="MarginContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 10
@@ -99,3 +104,6 @@ value = 75.0
 fill_mode = 3
 texture_over = ExtResource("1_jncnb")
 texture_progress = ExtResource("3_4sakp")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MainMenu/VBoxContainer/Button" to="." method="ContinuePressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/MainMenu/VBoxContainer/Button3" to="." method="QuitPressed"]

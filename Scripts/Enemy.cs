@@ -11,20 +11,25 @@ public partial class Enemy : RigidBody2D
 	int frame;
 	bool moveToPlayer = false;
 	Node2D player;
-	int roamingRadius = 60;
+	int roamingRadius = 600;
 	Vector2 startingPos;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		//setting values and getting the area
 		startingPos = Position;
-		health = 10;
+		
+		health = 12;
 		speed = 200;
-		attackDamage = 1;
-		detectionRadius = 30;
+		attackDamage = 10;
+		detectionRadius = 100;
 		area = (CollisionShape2D)this.GetChild(2).GetChild(0);
 		area.Scale = new Vector2(detectionRadius, detectionRadius);
-	}
+
+        Callable calls = new Callable(this, MethodName.reduceHealth);
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
+    }
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -35,30 +40,47 @@ public partial class Enemy : RigidBody2D
 			move();
 		}
 		frame++;
+		if(health<=0)
+		{
+			
+			QueueFree();
+		}
 	}
-
 	void reduceHealth(int amount)
 	{
 		health -= amount;
+		//GD.Print(health);
+	}
+	void lostTarget(Node2D body)
+	{
+		//GD.Print(body.Name);
 	}
 	void onDeath()
 	{
 		//when combat
 	}
-	void attack()
+	void attack(Node2D body)
 	{
+		if(body.Name=="Player")
+		{
+            var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+			
+			signalBuss.EmitPlayerAttacked(attackDamage);
+        }
 		//later when making combat
 	}
 	void moveTowardsPlayer(Node2D body)
 	{
+		//GD.Print("found target");
 		//makes the enemy walk towards the player
 		moveToPlayer = true;
 		player = body;
 	}
 
-	void walkAround()
+	void walkAround(Node2D body)
 	{
 		//makes the enemy walk around again
+		//GD.Print("lost target");
 		moveToPlayer = false;
 		player = null;
 	}

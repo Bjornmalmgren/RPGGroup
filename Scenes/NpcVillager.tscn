@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/NpcFarmer.cs" id="1_kccoo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2d58b"]
-radius = 254.002
+radius = 102.122
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atxr0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

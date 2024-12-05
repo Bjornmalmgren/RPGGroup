@@ -41,6 +41,7 @@ import/blender/enabled=false
 
 player=""
 npc=""
+maps=""
 
 [input]
 

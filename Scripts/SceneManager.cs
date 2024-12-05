@@ -1,30 +1,34 @@
 using Godot;
 using System;
+using static System.Formats.Asn1.AsnWriter;
 
 public partial class SceneManager : Node
 {
 	string currentScene;
+	public bool startSceneLoaded = false;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		loadScene("Scenes/startmenu.tscn");
-		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-		signalBuss.Connect(SignalBuss.SignalName.StartButtonPressed, Callable.From(OnStartButtonPressed), (uint)GodotObject.ConnectFlags.OneShot);
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
-	private void OnStartButtonPressed()
+	public void OnStartButtonPressed()
 	{
 		GD.Print("no");
-		unLoadScene();
+		unLoadScenes();
 		loadScene("Scenes/VillageMap.tscn");
-		AddScene("Scenes/player.tscn");
-		//AddScene("Scenes/UI.tscn");
-	}
-	void loadScene(string sceneName)
+      
+        loadScene("Scenes/player.tscn");
+		AddScene("Scenes/Enemy.tscn");
+        loadScene("Scenes/UI.tscn");
+        startSceneLoaded = true;
+    }
+	public void loadScene(string sceneName)
 	{
 		if(currentScene!=sceneName)
 		{
@@ -35,23 +39,40 @@ public partial class SceneManager : Node
         }
 		
 	}
-	void unLoadScene()
+	public void unLoadScenes()
 	{
+        
         var children = GetChildren();
         foreach (var child in children)
         {
             RemoveChild(child);
         }
     }
-	void AddScene(string sceneName)
+    public void unLoadScene(int index)
+    {
+        
+        var child = GetChild(index);
+		RemoveChild(child);
+    }
+    void AddScene(string sceneName)
 	{
 		if (currentScene != sceneName)
 		{
-			var child = GetChild(0);
+			var children= GetChildren();
+			var mapchild = GetChild(0);
+			foreach(var child in children){
+				if(child.GetGroups().Contains("maps"))
+				{
+					GD.Print(child.Name);
+
+					mapchild = child;
+					break;
+				}
+			}
 
             var grandchild = GD.Load<PackedScene>(sceneName);
 			var instance = grandchild.Instantiate();
-			child.AddChild(instance);
+			mapchild.AddChild(instance);
 
         }
     }
