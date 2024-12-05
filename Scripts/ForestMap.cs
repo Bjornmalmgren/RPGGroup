@@ -3,52 +3,50 @@ using System;
 using static System.Formats.Asn1.AsnWriter;
 
 public partial class ForestMap : Node2D
-{
-	private readonly Vector2[] wolfSpawnPositions = 
-	{
-		new Vector2(-2430, 350),
-		new Vector2(960, -730),
-		new Vector2(0, -170),
-		new Vector2(-1030, 1080),
-		new Vector2(-570, 2280),
-		new Vector2(3173, 265)
-	};
-	
-	private readonly Vector2[] cultistSpawnPositions = 
-	{
-		new Vector2(-280, -1343)
-	};
-	
+{	
 	private EnemyManager enemyManager;
 	
 	private void SpawnEnemies()
 	{
-		foreach (Vector2 spawnPosition in wolfSpawnPositions)
+			// Locate the parent node of all spawn points
+		Node spawnPointsParent = GetNode("SpawnPoints");
+		
+		if (spawnPointsParent == null)
 		{
-			Enemy wolf = enemyManager.spawnEnemy("WolfEnemy");
-
-			if (wolf != null)
-			{
-				wolf.Position = spawnPosition;
-				GD.Print($"Spawning enemy at: {spawnPosition}");
-				AddChild(wolf);
-			}
+			GD.PrintErr("No 'SpawnPoints' node found in the scene!");
+			return;
 		}
-		foreach (Vector2 spawnPosition in cultistSpawnPositions)
+		
+		// Iterate over all child nodes of SpawnPoints
+		foreach (Node child in spawnPointsParent.GetChildren())
 		{
-			Enemy cultist = enemyManager.spawnEnemy("CultistEnemy");
-
-			if (cultist != null)
+			if (child is Node2D spawnPoint)
 			{
-				cultist.Position = spawnPosition;
-				AddChild(cultist);
+				Enemy enemy = null;
+
+				// Spawn wolf or cultist based on spawn point name or group
+				if (((string)spawnPoint.Name).Contains("Wolf"))
+				{
+					enemy = enemyManager.spawnEnemy("WolfEnemy");
+				}
+				if (((string)spawnPoint.Name).Contains("Cultist"))
+				{
+					enemy = enemyManager.spawnEnemy("CultistEnemy");
+				}
+
+				// If an enemy was spawned, set its position and add it to the scene
+				if (enemy != null)
+				{
+					enemy.Position = spawnPoint.GlobalPosition;
+					AddChild(enemy);
+					GD.Print($"Spawned {enemy.Name} at {enemy.Position}");
+				}
 			}
 		}
 	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GD.PrintErr("ForestMap loaded and ready!");
 		enemyManager = GetNode<EnemyManager>("/root/EnemyManager");
 
 		if (enemyManager == null)
