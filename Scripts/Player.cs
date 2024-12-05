@@ -7,7 +7,7 @@ public partial class Player : CharacterBody2D
 	private  float movementSpeed = 300.0f;
 
 	[Export]
-	public int health = 110;
+	public int health = 100;
 
 	
 
