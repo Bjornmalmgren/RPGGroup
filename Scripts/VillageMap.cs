@@ -24,7 +24,7 @@ public partial class VillageMap : Node2D
 			{
 				if (scene.GetChild(i).Name == this.Name)
 				{
-					scene.unLoadScene(i);
+					scene.unLoadSceneByIndex(i);
 					break;
 				}
 			}

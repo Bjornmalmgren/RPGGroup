@@ -17,6 +17,8 @@ public partial class GameManager : Node2D
 	ProjectileManager ProjectileManager { get; set; }
 	[Export]
 	VFXManager VFXManager { get; set; }
+
+	TextureRect PauseUI { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	bool isPaused = false;
 	int frame = 0;
@@ -89,19 +91,32 @@ public partial class GameManager : Node2D
 	void pauseGame()
 	{
 		
-		var pauseUi=SceneManager.GetChild(1).GetChild(0).GetChild(0).GetChild(1);
-		TextureRect pause = (TextureRect)pauseUi;
-		
-		pause.Visible = true;
+        var children = SceneManager.GetChildren();
+        foreach (var child in children)
+        {
+            if (child.Name == "UI")
+            {
+                PauseUI = (TextureRect)child.GetChild(0).GetChild(0).GetChild(1);
+            }
+        }
+
+
+
+		if (PauseUI.Name == "MainMenu")
+		{
+			PauseUI.Visible = true;
+		}
 		GetTree().Paused = true;
 		
 	}
 	void unpauseGame()
 	{
-		var pauseUi = SceneManager.GetChild(1).GetChild(0).GetChild(0).GetChild(1);
-		TextureRect pause = (TextureRect)pauseUi;
-		pause.Visible = false;
-		GetTree().Paused = false;
+
+        if (PauseUI.Name == "MainMenu")
+        {
+            PauseUI.Visible = false;
+        }
+        GetTree().Paused = false;
 	}
 	void saveGame()
 	{

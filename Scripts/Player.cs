@@ -18,7 +18,34 @@ public partial class Player : CharacterBody2D
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
 	}
-	public void Move()
+    private void Attacked(int damage)
+    {
+
+
+        health -= damage;
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        signalBuss.EmitPlayerLostHealth(health);
+
+    }
+    public void Attack()
+    {
+        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+        Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
+
+        if (direction == Vector2.Zero)
+        {
+
+            direction.X = Scale.Y;
+        }
+
+        Vector2 pos = Position;
+        pos.X += direction.X * 60;
+        pos.Y += direction.Y * 100;
+        direction *= 10;
+        signalBuss.EmitPlayerAttack(pos, direction);
+
+    }
+    public void Move()
 	{
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
 		if (Input.IsActionJustPressed("Left", false))
@@ -43,38 +70,8 @@ public partial class Player : CharacterBody2D
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerDeath();
 	}
-	public void Attack()
-	{
-		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-		Vector2 direction = Input.GetVector("Left", "Right", "Up", "Down");
-		
-		if (direction==Vector2.Zero)
-		{
-
-			direction.X = Scale.Y;
-		}
-
-		Vector2 pos = Position;
-		pos.X += direction.X*60;
-		pos.Y += direction.Y*100;
-
-
-
-		
-		direction *= 10;
-	   
-		signalBuss.EmitPlayerAttack(pos,direction);
-		
-	}
-	private void Attacked(int damage)
-	{
-		
-
-		health-=damage;
-		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-		signalBuss.EmitPlayerLostHealth(health);
-	  
-	}
+	
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		Move();

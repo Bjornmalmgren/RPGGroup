@@ -85,7 +85,7 @@ public partial class villageScene : Node
 
 	public void WaitUntillForestLoaded()
 	{
-		// GD.Print("aaa");
+		GD.Print("aaa");
 		SceneManager scene = (SceneManager)this.GetParent();
 		int children = scene.GetChildCount();
 		int player = 2;
@@ -107,14 +107,14 @@ public partial class villageScene : Node
 
 		Player rig = (Player)scene.GetChild(player);
 		Node2D pos = (Node2D)scene.GetChild(forestMap).GetChild(6).GetChild(1);
-		//GD.Print(scene.GetChild(forestMap).Name);
+		GD.Print(pos.Name);
 		for (int i = 0; i < children; i++)
 		{
 			if (scene.GetChild(i).Name == this.Name)
 			{
-				scene.CallDeferred(SceneManager.MethodName.unLoadScene, i);
-
-				rig.Position = pos.Position;
+				scene.CallDeferred(SceneManager.MethodName.unLoadSceneByIndex, i);
+				GD.Print("unload");
+				rig.Position = pos.GlobalPosition;
 				break;
 			}
 		}

@@ -111,7 +111,7 @@ public partial class ForestMap : Node2D
 		{
 			if (scene.GetChild(i).Name == this.Name)
 			{
-				scene.CallDeferred(SceneManager.MethodName.unLoadScene, i);
+				scene.CallDeferred(SceneManager.MethodName.unLoadSceneByIndex, i);
 
 				rig.Position = pos.GlobalPosition;
 				break;

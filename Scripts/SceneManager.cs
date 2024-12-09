@@ -21,12 +21,14 @@ public partial class SceneManager : Node
 	{
 		GD.Print("no");
 		unLoadScenes();
-		loadScene("Scenes/VillageMap.tscn");
+     
+        loadScene("Scenes/VillageMap.tscn");
 	  
 		loadScene("Scenes/player.tscn");
 		AddScene("Scenes/Enemy.tscn");
-		loadScene("Scenes/UI.tscn");
-		startSceneLoaded = true;
+        loadScene("Scenes/UI.tscn");
+
+        startSceneLoaded = true;
 	}
 	public void loadScene(string sceneName)
 	{
@@ -48,7 +50,21 @@ public partial class SceneManager : Node
 			RemoveChild(child);
 		}
 	}
-	public void unLoadScene(int index)
+    public void unLoadSceneByName(string name)
+    {
+
+        var children = GetChildren();
+        foreach (var child in children)
+        {
+            if (child.Name == name)
+            {
+                RemoveChild(child);
+            }
+
+        }
+    }
+    
+	public void unLoadSceneByIndex(int index)
 	{
 		
 		var child = GetChild(index);
