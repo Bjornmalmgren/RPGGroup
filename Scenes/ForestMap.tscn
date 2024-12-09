@@ -1,5 +1,6 @@
-[gd_scene load_steps=94 format=4 uid="uid://r6xnesrn7wl4"]
+[gd_scene load_steps=96 format=4 uid="uid://r6xnesrn7wl4"]
 
+[ext_resource type="Script" path="res://Scripts/ForestMap.cs" id="1_4f0b8"]
 [ext_resource type="Texture2D" uid="uid://yumbobo0fs3b" path="res://Sprites/isometric/ground_tiles_sheets/grass_medium_64x32.png" id="1_totfg"]
 [ext_resource type="Texture2D" uid="uid://ca8q0ld58gub3" path="res://Sprites/isometric/tiles_single/walls_1_64x32_shaded/walls_1_64x32_shaded-73.png" id="2_uskap"]
 [ext_resource type="Texture2D" uid="uid://cbxpm5fyo2epr" path="res://Sprites/isometric/grassland_tileset_updated/water_v04.png" id="3_typkq"]
@@ -2498,8 +2499,12 @@ sources/6 = SubResource("TileSetAtlasSource_chn4e")
 sources/7 = SubResource("TileSetAtlasSource_vv7bk")
 sources/8 = SubResource("TileSetAtlasSource_hyhx0")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj73n"]
+size = Vector2(318, 119)
+
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_4f0b8")
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -1
@@ -3725,7 +3730,7 @@ position = Vector2(229, -1229)
 texture = ExtResource("65_dfnx6")
 
 [node name="Trees64x32Shaded-209" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-526, -762)
+position = Vector2(-187, -826)
 texture = ExtResource("66_53871")
 
 [node name="Trees64x32Shaded-210" type="Sprite2D" parent="TreeLayer1"]
@@ -3749,7 +3754,7 @@ position = Vector2(-6, -1213)
 texture = ExtResource("71_rcygc")
 
 [node name="Trees64x32Shaded-215" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-276, -582)
+position = Vector2(-81, -606)
 texture = ExtResource("72_ofdxv")
 
 [node name="Trees64x32Shaded-216" type="Sprite2D" parent="TreeLayer1"]
@@ -4506,7 +4511,7 @@ position = Vector2(-1506, 785)
 texture = ExtResource("37_vtuwk")
 
 [node name="Trees64x32Shaded-404" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-2490, 743)
+position = Vector2(-2197, 663)
 texture = ExtResource("38_v1hwx")
 
 [node name="Trees64x32Shaded-405" type="Sprite2D" parent="TreeLayer1"]
@@ -4534,7 +4539,7 @@ position = Vector2(-2516, 807)
 texture = ExtResource("44_f47tu")
 
 [node name="Trees64x32Shaded-411" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-1323, 964)
+position = Vector2(-177, 564)
 texture = ExtResource("45_4a7ap")
 
 [node name="Trees64x32Shaded-412" type="Sprite2D" parent="TreeLayer1"]
@@ -4606,7 +4611,7 @@ position = Vector2(-1348, 541)
 texture = ExtResource("57_w7m4n")
 
 [node name="Trees64x32Shaded-429" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-2513, 662)
+position = Vector2(-2301, 757)
 texture = ExtResource("58_p7cst")
 
 [node name="Trees64x32Shaded-430" type="Sprite2D" parent="TreeLayer1"]
@@ -4666,7 +4671,7 @@ position = Vector2(-1472, 564)
 texture = ExtResource("63_vrgw3")
 
 [node name="Trees64x32Shaded-444" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-2447, 548)
+position = Vector2(-2271, 573)
 texture = ExtResource("64_rbifh")
 
 [node name="Trees64x32Shaded-445" type="Sprite2D" parent="TreeLayer1"]
@@ -5771,7 +5776,7 @@ position = Vector2(141, 935)
 texture = ExtResource("37_vtuwk")
 
 [node name="Trees64x32Shaded-720" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-662, 1069)
+position = Vector2(-622, 887)
 texture = ExtResource("38_v1hwx")
 
 [node name="Trees64x32Shaded-721" type="Sprite2D" parent="TreeLayer1"]
@@ -5907,7 +5912,7 @@ position = Vector2(-219, 649)
 texture = ExtResource("57_w7m4n")
 
 [node name="Trees64x32Shaded-754" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(-818, 959)
+position = Vector2(-680, 849)
 texture = ExtResource("58_p7cst")
 
 [node name="Trees64x32Shaded-755" type="Sprite2D" parent="TreeLayer1"]
@@ -6259,7 +6264,7 @@ position = Vector2(-518, 1117)
 texture = ExtResource("66_53871")
 
 [node name="Trees64x32Shaded-842" type="Sprite2D" parent="TreeLayer1"]
-position = Vector2(282, 1384)
+position = Vector2(282, 1296)
 texture = ExtResource("67_lujyd")
 
 [node name="Trees64x32Shaded-843" type="Sprite2D" parent="TreeLayer1"]
@@ -10793,161 +10798,238 @@ texture = ExtResource("58_p7cst")
 [node name="Bridge1" type="TileMapLayer" parent="."]
 
 [node name="StoneBlock" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1634, 1221)
 texture = ExtResource("86_mktk7")
 
 [node name="StoneBlock3" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1753, 1282)
+y_sort_enabled = true
+position = Vector2(1768, 1299)
 texture = ExtResource("86_mktk7")
 
 [node name="SMallStoneBlock" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1604, 1242)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock2" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1571, 1259)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock3" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1537, 1276)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock4" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1504, 1293)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock5" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1471, 1310)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock6" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1438, 1327)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock7" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1404, 1344)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock8" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1371, 1361)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock9" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1338, 1377)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock10" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1306, 1391)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock11" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1716, 1301)
+y_sort_enabled = true
+position = Vector2(1731, 1318)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock12" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1683, 1318)
+y_sort_enabled = true
+position = Vector2(1698, 1335)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock13" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1649, 1335)
+y_sort_enabled = true
+position = Vector2(1664, 1352)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock14" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1616, 1352)
+y_sort_enabled = true
+position = Vector2(1631, 1369)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock15" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1583, 1369)
+y_sort_enabled = true
+position = Vector2(1598, 1386)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock16" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1550, 1386)
+y_sort_enabled = true
+position = Vector2(1565, 1403)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock17" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1516, 1403)
+y_sort_enabled = true
+position = Vector2(1531, 1420)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock18" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1483, 1420)
+y_sort_enabled = true
+position = Vector2(1498, 1437)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock19" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1450, 1436)
+y_sort_enabled = true
+position = Vector2(1465, 1453)
 texture = ExtResource("85_if146")
 
 [node name="SMallStoneBlock20" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1418, 1450)
+y_sort_enabled = true
+position = Vector2(1433, 1467)
 texture = ExtResource("85_if146")
 
 [node name="StoneBlock4" type="Sprite2D" parent="Bridge1"]
-position = Vector2(1395, 1453)
+y_sort_enabled = true
+position = Vector2(1410, 1470)
 texture = ExtResource("86_mktk7")
 
 [node name="StoneBlock2" type="Sprite2D" parent="Bridge1"]
+y_sort_enabled = true
 position = Vector2(1288, 1399)
 texture = ExtResource("86_mktk7")
 
 [node name="Brigde2" type="TileMapLayer" parent="."]
 
 [node name="StoneBlock2" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1826, -592)
 texture = ExtResource("86_mktk7")
 
 [node name="SmallStoneBlock2" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1856, -573)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock3" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1887, -557)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock4" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1918, -541)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock5" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1950, -525)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock6" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(1982, -509)
 texture = ExtResource("87_qo07h")
 
 [node name="StoneBlock4" type="Sprite2D" parent="Brigde2"]
+y_sort_enabled = true
 position = Vector2(2016, -497)
 texture = ExtResource("86_mktk7")
 
 [node name="StoneBlock3" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1735, -542)
+y_sort_enabled = true
+position = Vector2(1706, -514)
 texture = ExtResource("86_mktk7")
 
 [node name="SmallStoneBlock7" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1769, -526)
+y_sort_enabled = true
+position = Vector2(1740, -498)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock8" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1800, -510)
+y_sort_enabled = true
+position = Vector2(1771, -482)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock9" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1831, -494)
+y_sort_enabled = true
+position = Vector2(1802, -466)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock10" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1863, -478)
+y_sort_enabled = true
+position = Vector2(1834, -450)
 texture = ExtResource("87_qo07h")
 
 [node name="SmallStoneBlock11" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1895, -462)
+y_sort_enabled = true
+position = Vector2(1866, -434)
 texture = ExtResource("87_qo07h")
 
 [node name="StoneBlock5" type="Sprite2D" parent="Brigde2"]
-position = Vector2(1925, -447)
+y_sort_enabled = true
+position = Vector2(1896, -419)
 texture = ExtResource("86_mktk7")
 
 [node name="Collisions" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collisions"]
-visible = false
-polygon = PackedVector2Array(-3104, -59, -3147, 7, -3154, 50, -3054, 160, -2865, 314, -2771, 427, -2718, 555, -2953, 660, -3195, 674, -3323, 736, -3299, 811, -3465, 981, -3379, 1103, -3241, 1111, -3087, 1136, -2913, 1136, -2694, 1068, -2626, 965, -2507, 908, -2523, 769, -2449, 814, -2418, 733, -2468, 696, -2359, 642, -2264, 532, -2106, 518, -1917, 486, -1761, 493, -1599, 549, -1478, 561, -1311, 656, -1216, 775, -1192, 858, -1295, 940, -1394, 1042, -1440, 1108, -1427, 1228, -1299, 1294, -1182, 1301, -970, 1447, -724, 1591, -773, 1670, -716, 1688, -632, 1634, -295, 1716, 13, 1894, -52, 2031, -288, 2136, -507, 2245, -721, 2250, -830, 2335, -749, 2428, -583, 2480, -509, 2404, -110, 2345, 5, 2388, 190, 2288, 283, 2190, 340, 1796, 390, 1715, 516, 1657, 744, 1608, 969, 1593, 1146, 1553, 1277, 1589, 1439, 1535, 1399, 1491, 1357, 1468, 1746, 1259, 1784, 1293, 1698, 1340, 1843, 1415, 1892, 1367, 1977, 1358, 1909, 1278, 1909, 1226, 2172, 1121, 2614, 938, 2870, 846, 3168, 673, 3215, 552, 3384, 417, 3426, 220, 3267, 135, 3184, 114, 3085, 155, 3007, 229, 2944, 316, 2968, 435, 2861, 563, 2739, 655, 2602, 700, 2510, 792, 2234, 788, 2156, 927, 1934, 974, 1684, 667, 1561, 628, 1547, 453, 1642, 442, 1568, 310, 1645, 173, 1745, 115, 1769, -75, 1957, -167, 2087, -281, 2189, -337, 2281, -357, 2333, -409, 2273, -477, 2123, -523, 2083, -539, 2025, -514, 2056, -486, 2018, -461, 1794, -577, 1838, -610, 1633, -730, 1580, -840, 1507, -825, 1357, -821, 1304, -893, 1119, -876, 1041, -878, 982, -897, 943, -868, 863, -842, 835, -764, 765, -753, 753, -700, 683, -664, 587, -666, 494, -539, 447, -462, 378, -437, 143, -430, 30, -428, -73, -495, -180, -410, -278, -412, -395, -535, -427, -611, -541, -583, -590, -852, -465, -1012, -322, -1110, -126, -1178, 29, -1158, 187, -1244, 303, -1317, 255, -1418, 168, -1404, 0, -1388, -60, -1415, -166, -1404, -321, -1381, -390, -1426, -458, -1406, -484, -1404, -566, -1372, -561, -1215, -647, -1199, -656, -1103, -675, -978, -764, -957, -830, -823, -919, -766, -907, -729, -1064, -688, -1085, -636, -1190, -620, -1467, -540, -1559, -640, -1637, -598, -1823, -722, -1995, -576, -1695, -419, -1669, -432, -1639, -416, -1567, -444, -1513, -423, -1443, -444, -1190, -441, -1097, -483, -1044, -484, -930, -537, -882, -535, -832, -556, -730, -511, -702, -525, -100, -223, -31, -252, 321, -238, 517, -269, 549, -304, 706, -409, 937, -597, 1131, -682, 1284, -654, 1351, -554, 1358, -486, 1333, -439, 1391, -429, 1467, -492, 1581, -429, 1731, -499, 1706, -523, 1727, -542, 1958, -440, 1919, -418, 1874, -442, 1750, -379, 1712, -278, 1669, -239, 1679, -131, 1613, -73, 1543, -7, 1483, 51, 1459, 145, 1409, 177, 1429, 331, 1453, 377, 1451, 645, 1497, 677, 1621, 1169, 1602, 1202, 1662, 1235, 1292, 1428, 1251, 1417, 1364, 1341, 1367, 1116, 1327, 1093, 1331, 911, 1297, 888, 1304, 791, 1255, 768, 1266, 648, 1223, 623, 1233, 547, 1123, 418, 1114, 350, 993, 279, 1022, 271, 749, 133, 757, 85, 711, 47, 730, 1, 679, -29, 694, -46, 578, -110, 594, -129, 483, -187, 495, -156, 441, -98, 609, 208, 536, 325, 406, 447, 407, 581, 363, 689, 676, 722, 881, 751, 999, 794, 1129, 1062, 1147, 1232, 881, 1300, 831, 1348, 745, 1346, 601, 1392, 389, 1434, 289, 1524, 83, 1544, -43, 1476, -179, 1444, -345, 1380, -485, 1388, -540, 1268, -626, 1196, -693, 1212, -645, 1074, -742, 1074, -819, 1107, -879, 996, -976, 889, -1026, 611, -858, 521, -603, 454, -293, 399, -184, 249, -46, 42, 19, -133, -29, -154, -56, -145, -286, -175, -250, -74, -307, 75, -489, 142, -568, 201, -745, 220, -908, 279, -992, 309, -1020, 369, -1188, 382, -1319, 263, -1449, 87, -1618, 63, -1753, 90, -1842, 12, -1922, 94, -2141, 168, -2198, 99, -2291, 127, -2369, 139, -2533, 201, -2650, 113, -2830, 116, -2890, -5, -2910, -71, -3004, -83, -3098, -65, -3436, -287, 63, -2081, 4903, 401, -489, 3198, -5201, 723, -3441, -283)
+polygon = PackedVector2Array(-3104, -59, -3147, 7, -3154, 50, -3054, 160, -2865, 314, -2771, 427, -2718, 555, -2953, 660, -3195, 674, -3323, 736, -3299, 811, -3465, 981, -3379, 1103, -3241, 1111, -3087, 1136, -2913, 1136, -2694, 1068, -2626, 965, -2507, 908, -2496, 849, -2449, 814, -2418, 733, -2468, 696, -2359, 642, -2264, 532, -2106, 518, -1917, 486, -1761, 493, -1599, 549, -1478, 561, -1311, 656, -1216, 775, -1192, 858, -1295, 940, -1394, 1042, -1440, 1108, -1427, 1228, -1299, 1294, -1182, 1301, -970, 1447, -724, 1591, -773, 1670, -716, 1688, -632, 1634, -295, 1716, 13, 1894, -52, 2031, -288, 2136, -507, 2245, -721, 2250, -830, 2335, -749, 2428, -583, 2480, -509, 2404, -110, 2345, 5, 2388, 190, 2288, 283, 2190, 340, 1796, 390, 1715, 516, 1657, 744, 1608, 969, 1593, 1146, 1553, 1277, 1589, 1439, 1535, 1375, 1489, 1434, 1462, 1793, 1285, 1799, 1313, 1711, 1350, 1843, 1415, 1892, 1367, 1977, 1358, 1909, 1278, 1909, 1226, 2172, 1121, 2614, 938, 2870, 846, 3168, 673, 3215, 552, 3384, 417, 3426, 220, 3267, 135, 3184, 114, 3085, 155, 3007, 229, 2944, 316, 2968, 435, 2861, 563, 2739, 655, 2602, 700, 2510, 792, 2234, 788, 2156, 927, 1934, 974, 1684, 667, 1597, 633, 1576, 483, 1642, 442, 1568, 310, 1645, 173, 1745, 115, 1769, -75, 1957, -167, 2087, -281, 2189, -337, 2281, -357, 2333, -409, 2273, -477, 2123, -523, 2083, -539, 2025, -514, 2045, -488, 2014, -465, 1796, -576, 1796, -607, 1633, -730, 1580, -840, 1507, -825, 1357, -821, 1304, -893, 1119, -876, 1041, -878, 982, -897, 943, -868, 863, -842, 835, -764, 765, -753, 753, -700, 683, -664, 587, -666, 494, -539, 447, -462, 378, -437, 143, -430, 30, -428, -73, -495, -179, -422, -258, -482, -395, -535, -427, -611, -472, -683, -590, -852, -465, -1012, -322, -1110, -126, -1178, 29, -1158, 187, -1244, 303, -1317, 255, -1418, 168, -1404, 0, -1388, -60, -1415, -166, -1404, -321, -1381, -390, -1426, -458, -1406, -484, -1404, -566, -1372, -561, -1215, -647, -1199, -656, -1103, -675, -978, -764, -957, -830, -823, -919, -766, -907, -729, -1064, -688, -1085, -636, -1190, -620, -1467, -540, -1559, -640, -1637, -598, -1823, -722, -1995, -576, -1695, -419, -1669, -432, -1639, -416, -1567, -444, -1513, -423, -1443, -444, -1190, -441, -1097, -483, -1044, -484, -930, -537, -882, -535, -832, -556, -730, -511, -702, -525, -100, -223, -31, -252, 321, -238, 517, -269, 549, -304, 706, -409, 937, -597, 1131, -682, 1284, -654, 1351, -554, 1358, -486, 1333, -439, 1391, -429, 1467, -492, 1581, -429, 1700, -486, 1688, -496, 1706, -513, 1943, -431, 1891, -390, 1840, -426, 1750, -379, 1712, -278, 1669, -239, 1679, -131, 1613, -73, 1543, -7, 1483, 51, 1459, 145, 1409, 177, 1429, 331, 1453, 377, 1451, 645, 1497, 677, 1621, 1169, 1602, 1202, 1663, 1235, 1286, 1427, 1257, 1413, 1364, 1341, 1367, 1116, 1327, 1093, 1331, 911, 1297, 888, 1304, 791, 1255, 768, 1266, 648, 1223, 623, 1233, 547, 1123, 418, 1114, 350, 993, 279, 1022, 271, 749, 133, 757, 85, 711, 47, 730, 1, 679, -29, 694, -46, 578, -110, 594, -129, 483, -187, 495, -156, 441, -98, 609, 208, 536, 325, 406, 447, 407, 581, 363, 689, 676, 722, 881, 751, 999, 794, 1129, 1062, 1147, 1232, 881, 1300, 831, 1348, 745, 1346, 601, 1392, 389, 1434, 289, 1524, 83, 1544, -43, 1476, -179, 1444, -345, 1380, -485, 1388, -540, 1268, -626, 1196, -620, 1136, -645, 1074, -742, 1074, -779, 1013, -879, 996, -976, 889, -1026, 611, -858, 521, -603, 454, -293, 399, -184, 249, -46, 42, 19, -133, -29, -154, -56, -145, -286, -175, -250, -74, -307, 75, -489, 142, -568, 201, -745, 220, -908, 279, -992, 309, -1020, 369, -1188, 382, -1319, 263, -1449, 87, -1618, 63, -1753, 90, -1842, 12, -1922, 94, -2141, 168, -2198, 99, -2291, 127, -2369, 139, -2533, 201, -2650, 113, -2830, 116, -2890, -5, -2910, -71, -3004, -83, -3098, -65, -3436, -287, 63, -2081, 4903, 401, -489, 3198, -5201, 723, -3441, -283)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3004, 0)
+shape = SubResource("RectangleShape2D_bj73n")
+
+[node name="Spawnpoint" type="Node2D" parent="Area2D" groups=["maps"]]
+position = Vector2(-2862, 208)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPointWolf1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-2431, 429)
+
+[node name="SpawnPointWolf2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(3108, 427)
+
+[node name="SpawnPointWolf3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-533, 2321)
+
+[node name="SpawnPointWolf4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-998, 1189)
+
+[node name="SpawnPointWolf5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-258, 153)
+
+[node name="SpawnPointWolf6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(787, -632)
+
+[node name="SpawnPointCultist1" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-376, -1238)
+
+[node name="SpawnPointCultist2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-226, -1244)
+
+[node name="SpawnPointCultist3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(-316, -1298)
+
+[connection signal="body_entered" from="Area2D" to="." method="PlayerCollision"]

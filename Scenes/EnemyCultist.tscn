@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn1wsqd5j2uwl"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_cepiy"]
+[ext_resource type="Texture2D" uid="uid://ccpddqm0ad2bt" path="res://Sprites/isometric/Cultist.png" id="2_5pe85"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
+size = Vector2(22.5, 33)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
+radius = 87.6926
+
+[node name="Cultist" type="RigidBody2D"]
+mass = 0.137
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_cepiy")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xbc31")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_5pe85")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="Detection Area" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_nth8j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xbc31")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="moveTowardsPlayer"]
+[connection signal="body_exited" from="DetectionArea" to="." method="walkAround"]
+[connection signal="body_entered" from="Area2D" to="." method="attack"]
+[connection signal="body_exited" from="Area2D" to="." method="lostTarget"]

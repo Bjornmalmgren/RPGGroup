@@ -26,10 +26,10 @@ public partial class Enemy : RigidBody2D
 		area = (CollisionShape2D)this.GetChild(2).GetChild(0);
 		area.Scale = new Vector2(detectionRadius, detectionRadius);
 
-        Callable calls = new Callable(this, MethodName.reduceHealth);
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-        signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
-    }
+		Callable calls = new Callable(this, MethodName.reduceHealth);
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.Connect(SignalBuss.SignalName.EnemyHit, calls, (uint)GodotObject.ConnectFlags.Persist);
+	}
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -43,17 +43,17 @@ public partial class Enemy : RigidBody2D
 		if(health<=0)
 		{
 			
-			QueueFree();
+			this.QueueFree();
 		}
 	}
 	void reduceHealth(int amount)
 	{
 		health -= amount;
-		GD.Print(health);
+		//GD.Print(health);
 	}
 	void lostTarget(Node2D body)
 	{
-		GD.Print(body.Name);
+		//GD.Print(body.Name);
 	}
 	void onDeath()
 	{
@@ -63,15 +63,15 @@ public partial class Enemy : RigidBody2D
 	{
 		if(body.Name=="Player")
 		{
-            var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+			var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 			
 			signalBuss.EmitPlayerAttacked(attackDamage);
-        }
+		}
 		//later when making combat
 	}
 	void moveTowardsPlayer(Node2D body)
 	{
-		GD.Print("found target");
+		//GD.Print("found target");
 		//makes the enemy walk towards the player
 		moveToPlayer = true;
 		player = body;
@@ -80,7 +80,7 @@ public partial class Enemy : RigidBody2D
 	void walkAround(Node2D body)
 	{
 		//makes the enemy walk around again
-		GD.Print("lost target");
+		//GD.Print("lost target");
 		moveToPlayer = false;
 		player = null;
 	}
@@ -118,7 +118,8 @@ public partial class Enemy : RigidBody2D
 					break;
 			}
 
-		}else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
+		}
+		else if (Position.X >= startingPos.X + roamingRadius || Position.X <= startingPos.X - roamingRadius || Position.Y >= startingPos.Y + roamingRadius || Position.Y <= startingPos.Y - roamingRadius)
 		{
 			Vector2 direction = Position.DirectionTo(startingPos);
 			ApplyForce(direction * speed);

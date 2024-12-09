@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtukb2ogtndex"]
+[gd_scene load_steps=5 format=3 uid="uid://bf5ee3c2kmsf4"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_h5ct4"]
 [ext_resource type="Texture2D" uid="uid://jc0v7o8055qi" path="res://Sprites/isometric/wolf.png" id="2_ye0wy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbc31"]
-size = Vector2(127, 128)
+size = Vector2(54, 53)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nth8j"]
+radius = 120.004
 
 [node name="Enemy" type="RigidBody2D"]
 mass = 0.137
@@ -17,13 +18,12 @@ max_contacts_reported = 5
 script = ExtResource("1_h5ct4")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_xbc31")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2.06251, -6.92912)
-scale = Vector2(0.17981, 0.181225)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("2_ye0wy")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -35,7 +35,7 @@ shape = SubResource("CircleShape2D_nth8j")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_xbc31")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="moveTowardsPlayer"]

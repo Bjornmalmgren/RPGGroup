@@ -19,6 +19,7 @@ config/icon="res://Sprites/icon.svg"
 
 SignalBuss="*res://Scripts/SignalBuss.cs"
 SoundManager="*res://Scenes/SoundManager.tscn"
+EnemyManager="*res://Scenes/EnemyManager.tscn"
 
 [display]
 
@@ -32,6 +33,10 @@ window/per_pixel_transparency/allowed=true
 
 project/assembly_name="RPGDemo"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
@@ -40,6 +45,7 @@ import/blender/enabled=false
 
 player=""
 npc=""
+maps=""
 
 [input]
 

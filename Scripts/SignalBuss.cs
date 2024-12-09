@@ -21,6 +21,11 @@ public partial class SignalBuss : Node
     public delegate void QuitEventHandler();
     [Signal]
     public delegate void PlayerDeathEventHandler();
+    [Signal]
+    public delegate void ForestMapChangeEventHandler();
+    [Signal]
+    public delegate void VillageMapChangeEventHandler();
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -45,7 +50,7 @@ public partial class SignalBuss : Node
 	}
 	public void EmitPlayerAttacked(int damage)
 	{
-		GD.Print(damage);
+		//GD.Print(damage);
 		EmitSignal(nameof(PlayerAttacked),damage);
 	}
 	public void EmitPlayerLostHealth(int health)
@@ -68,4 +73,14 @@ public partial class SignalBuss : Node
 	{
 		EmitSignal(nameof(EnemyHit),damage);
 	}
+
+	public void EmitForestMapChange()
+	{
+		EmitSignal(nameof(ForestMapChange));
+	}
+    public void EmitVillageMapChange()
+    {
+        EmitSignal(nameof(VillageMapChange));
+		//GD.Print("a");
+    }
 }

@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtebmysjoxgi0"]
+[gd_scene load_steps=11 format=3 uid="uid://dtebmysjoxgi0"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_damya"]
-[ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="2_mqu84"]
 [ext_resource type="Script" path="res://Scripts/VFXManager.cs" id="3_jhymr"]
 [ext_resource type="Script" path="res://Scripts/UIManager.cs" id="4_y1261"]
 [ext_resource type="Script" path="res://Scripts/ResourceManager.cs" id="5_lhb43"]
@@ -17,10 +16,6 @@ process_mode = 3
 script = ExtResource("1_damya")
 SceneManager = NodePath("Scene Manager")
 ProjectileManager = NodePath("Projectile Manager")
-
-[node name="Enemy Manager" type="Node2D" parent="."]
-process_mode = 1
-script = ExtResource("2_mqu84")
 
 [node name="VFX Manager" type="Node2D" parent="."]
 script = ExtResource("3_jhymr")

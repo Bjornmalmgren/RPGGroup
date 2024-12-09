@@ -7,17 +7,17 @@ public partial class Player : CharacterBody2D
 	private  float movementSpeed = 300.0f;
 
 	[Export]
-	public int health = 110;
+	public int health = 100;
 
 	
 
 	int frame;
-    public override void _Ready()
-    {
-        Callable calls = new Callable(this, MethodName.Attacked);
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
-        signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
-    }
+	public override void _Ready()
+	{
+		Callable calls = new Callable(this, MethodName.Attacked);
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
+	}
 	public void Move()
 	{
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
@@ -39,10 +39,10 @@ public partial class Player : CharacterBody2D
 	}
 	public void OnDeath()
 	{
-		GD.Print("dead");
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		//GD.Print("dead");
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerDeath();
-    }
+	}
 	public void Attack()
 	{
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
@@ -51,10 +51,10 @@ public partial class Player : CharacterBody2D
 		if (direction==Vector2.Zero)
 		{
 
-            direction.X = Scale.Y;
-        }
+			direction.X = Scale.Y;
+		}
 
-        Vector2 pos = Position;
+		Vector2 pos = Position;
 		pos.X += direction.X*60;
 		pos.Y += direction.Y*100;
 
@@ -71,9 +71,9 @@ public partial class Player : CharacterBody2D
 		
 
 		health-=damage;
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerLostHealth(health);
-      
+	  
 	}
 	public override void _PhysicsProcess(double delta)
 	{

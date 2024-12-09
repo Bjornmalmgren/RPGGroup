@@ -28,7 +28,7 @@ public partial class Startmenu : MarginContainer
 	void OnQuitPressed()
 	{
 		GD.Print("no");
-        var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
+		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitQuit();
-    }
+	}
 }
