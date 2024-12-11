@@ -79,6 +79,7 @@ public partial class ForestMap : Node2D
 	{
 	}
 
+	//called on player collisoin
 	public void PlayerCollision(Node2D body)
 	{
 		if(body.Name == "Player")
@@ -89,6 +90,7 @@ public partial class ForestMap : Node2D
 		   
 		}
 	}
+	//called after other scene is loaded
 	public void WaitUntillVillageLoaded()
 	{
 	   
@@ -96,6 +98,7 @@ public partial class ForestMap : Node2D
 		int children = scene.GetChildCount();
 		int player = 2;
 		int villageMap = 2;
+		//gets index of player and other scene
 		for (int i = 0; i < children; i++)
 		{
 			if (scene.GetChild(i).Name == "Player")
@@ -109,7 +112,7 @@ public partial class ForestMap : Node2D
 				villageMap = i;
 			}
 		}
-
+		//set position of player and unloads current scene
 		Player rig = (Player)scene.GetChild(player);
 		Node2D pos = (Node2D)scene.GetChild(villageMap).GetChild(10).GetChild(1);
 		GD.Print(pos.GlobalPosition);
