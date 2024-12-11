@@ -11027,9 +11027,9 @@ position = Vector2(787, -632)
 position = Vector2(-376, -1238)
 
 [node name="SpawnPointCultist2" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-226, -1244)
+position = Vector2(-189, -1266)
 
 [node name="SpawnPointCultist3" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-316, -1298)
+position = Vector2(-293, -1328)
 
 [connection signal="body_entered" from="Area2D" to="." method="PlayerCollision"]

@@ -4,11 +4,12 @@ using static System.Formats.Asn1.AsnWriter;
 
 public partial class ForestMap : Node2D
 {	
+	// Creating enemy manager
 	private EnemyManager enemyManager;
 	
 	private void SpawnEnemies()
 	{
-			// Locate the parent node of all spawn points
+		// Locate the parent node of all spawn points
 		Node spawnPointsParent = GetNode("SpawnPoints");
 		
 		if (spawnPointsParent == null)
@@ -20,11 +21,13 @@ public partial class ForestMap : Node2D
 		// Iterate over all child nodes of SpawnPoints
 		foreach (Node child in spawnPointsParent.GetChildren())
 		{
+			// Check if child node is a 2D node
 			if (child is Node2D spawnPoint)
 			{
+				// Create enemy
 				Enemy enemy = null;
 
-				// Spawn wolf or cultist based on spawn point name or group
+				// Spawn wolf or cultist based on spawn point name
 				if (((string)spawnPoint.Name).Contains("Wolf"))
 				{
 					enemy = enemyManager.spawnEnemy("WolfEnemy");
@@ -37,7 +40,9 @@ public partial class ForestMap : Node2D
 				// If an enemy was spawned, set its position and add it to the scene
 				if (enemy != null)
 				{
+					// Set the enemy's position to the spawn point's position
 					enemy.Position = spawnPoint.GlobalPosition;
+					// Add enemy to scene
 					AddChild(enemy);
 					GD.Print($"Spawned {enemy.Name} at {enemy.Position}");
 				}
@@ -47,6 +52,7 @@ public partial class ForestMap : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// Get a reference to the EnemyManager from the root node
 		enemyManager = GetNode<EnemyManager>("/root/EnemyManager");
 
 		if (enemyManager == null)
@@ -54,7 +60,7 @@ public partial class ForestMap : Node2D
 			GD.PrintErr("EnemyManager not found in the scene!");
 			return;
 		}
-		
+		// Call the method to spawn enemies at designated spawn points
 		SpawnEnemies();
 		
 		Callable calls = new Callable(this, MethodName.WaitUntillVillageLoaded);
