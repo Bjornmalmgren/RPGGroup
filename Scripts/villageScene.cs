@@ -69,8 +69,8 @@ public partial class villageScene : Node
 	public override void _Process(double delta)
 	{
 	}
-
-	public void playerCollision(Node2D body)
+    //called on player collisoin
+    public void playerCollision(Node2D body)
 	{
 
 		if (body.Name == "Player")
@@ -82,15 +82,17 @@ public partial class villageScene : Node
 
 
 	}
-
-	public void WaitUntillForestLoaded()
+    //called after other scene is loaded
+    public void WaitUntillForestLoaded()
 	{
 		GD.Print("aaa");
 		SceneManager scene = (SceneManager)this.GetParent();
 		int children = scene.GetChildCount();
 		int player = 2;
 		int forestMap = 2;
-		for (int i = 0; i < children; i++)
+
+        //gets index of player and other scene
+        for (int i = 0; i < children; i++)
 		{
 			if (scene.GetChild(i).Name == "Player")
 			{
@@ -104,8 +106,8 @@ public partial class villageScene : Node
 				forestMap = i;
 			}
 		}
-
-		Player rig = (Player)scene.GetChild(player);
+        //set position of player and unloads current scene
+        Player rig = (Player)scene.GetChild(player);
 		Node2D pos = (Node2D)scene.GetChild(forestMap).GetChild(6).GetChild(1);
 		GD.Print(pos.Name);
 		for (int i = 0; i < children; i++)
