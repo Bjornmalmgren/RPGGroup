@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn1wsqd5j2uwl"]
+[gd_scene load_steps=5 format=3 uid="uid://bs1a1py3sq54b"]
 
 [ext_resource type="Script" path="res://Scripts/Enemy.cs" id="1_cepiy"]
 [ext_resource type="Texture2D" uid="uid://ccpddqm0ad2bt" path="res://Sprites/isometric/Cultist.png" id="2_5pe85"]
