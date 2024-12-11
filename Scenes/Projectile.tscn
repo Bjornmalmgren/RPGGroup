@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://cc0do1g5ndolt"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.cs" id="1_ykoqj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7kw07"]
+
+[sub_resource type="Gradient" id="Gradient_vbkn3"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.864579, 0.450389, 9.62615e-07, 1, 0.770081, 0.770081, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lgl2u"]
+gradient = SubResource("Gradient_vbkn3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bngry"]
+resource_local_to_scene = true
+lifetime_randomness = 0.28
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.75
+angle_min = 1.07288e-05
+angle_max = 20.0
+inherit_velocity_ratio = 0.056
+spread = 59.157
+initial_velocity_max = 6.0
+gravity = Vector3(-100, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 3.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = 3.0
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = 3.0
+damping_max = 3.0
+scale_min = 5.0
+scale_max = 15.0
+color_ramp = SubResource("GradientTexture1D_lgl2u")
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 15
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("1_ykoqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7kw07")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_bngry")
+lifetime = 2.0
+preprocess = 60.61
+speed_scale = 1.65
+randomness = 0.38
+local_coords = true
+
+[connection signal="body_entered" from="." to="." method="onCollision"]

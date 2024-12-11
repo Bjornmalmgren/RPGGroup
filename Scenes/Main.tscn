@@ -1,23 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtebmysjoxgi0"]
+[gd_scene load_steps=11 format=3 uid="uid://dtebmysjoxgi0"]
 
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="1_damya"]
-[ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="2_mqu84"]
 [ext_resource type="Script" path="res://Scripts/VFXManager.cs" id="3_jhymr"]
 [ext_resource type="Script" path="res://Scripts/UIManager.cs" id="4_y1261"]
 [ext_resource type="Script" path="res://Scripts/ResourceManager.cs" id="5_lhb43"]
 [ext_resource type="Script" path="res://Scripts/SceneManager.cs" id="6_4d36w"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="7_4xuso"]
 [ext_resource type="Script" path="res://Scripts/ProjectileManager.cs" id="8_h4gfr"]
+[ext_resource type="PackedScene" uid="uid://cc0do1g5ndolt" path="res://Scenes/Projectile.tscn" id="9_1qf4l"]
 [ext_resource type="Script" path="res://Scripts/SaveManager.cs" id="9_bvt7x"]
 [ext_resource type="Script" path="res://Scripts/StatsManager.cs" id="10_wifhm"]
 
-[sub_resource type="TileSet" id="TileSet_wr4mk"]
-
-[node name="Game Manager" type="Node2D"]
+[node name="Game Manager" type="Node2D" node_paths=PackedStringArray("SceneManager", "ProjectileManager")]
+process_mode = 3
 script = ExtResource("1_damya")
-
-[node name="Enemy Manager" type="Node2D" parent="."]
-script = ExtResource("2_mqu84")
+SceneManager = NodePath("Scene Manager")
+ProjectileManager = NodePath("Projectile Manager")
 
 [node name="VFX Manager" type="Node2D" parent="."]
 script = ExtResource("3_jhymr")
@@ -29,18 +27,23 @@ script = ExtResource("4_y1261")
 script = ExtResource("5_lhb43")
 
 [node name="Scene Manager" type="Node2D" parent="."]
+process_mode = 1
 script = ExtResource("6_4d36w")
 
-[node name="TileMap" type="TileMap" parent="Scene Manager"]
-tile_set = SubResource("TileSet_wr4mk")
-collision_animatable = true
-format = 2
-
 [node name="Audio Manager" type="Node2D" parent="."]
+process_mode = 1
 script = ExtResource("7_4xuso")
 
-[node name="Projectile Manager" type="Node2D" parent="."]
+[node name="Projectile Manager" type="Node2D" parent="." node_paths=PackedStringArray("projectileBase")]
+process_mode = 1
+position = Vector2(0, 1)
 script = ExtResource("8_h4gfr")
+projectileBase = NodePath("RigidBody2D")
+
+[node name="RigidBody2D" parent="Projectile Manager" instance=ExtResource("9_1qf4l")]
+visible = false
+position = Vector2(-72, -50)
+lock_rotation = true
 
 [node name="Save Manager" type="Node2D" parent="."]
 script = ExtResource("9_bvt7x")
