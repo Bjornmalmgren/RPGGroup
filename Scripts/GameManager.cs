@@ -26,6 +26,7 @@ public partial class GameManager : Node2D
 
 	public override void _Ready()
 	{
+ 		//We link signals from the signal buss to corresponding functions
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.Connect(SignalBuss.SignalName.Unpause, Callable.From(unpauseGame), (uint)GodotObject.ConnectFlags.Persist);
 		signalBuss.Connect(SignalBuss.SignalName.Quit, Callable.From(shutdown), (uint)GodotObject.ConnectFlags.OneShot);
@@ -72,7 +73,7 @@ public partial class GameManager : Node2D
 	}
 	void shutdown()
 	{
-		
+		//Closes applicaiton
 		GetTree().Quit();
 	}
 	GameManager getInstance() { 
@@ -91,17 +92,13 @@ public partial class GameManager : Node2D
 	void pauseGame()
 	{
 		
-        var children = SceneManager.GetChildren();
-        foreach (var child in children)
-        {
-            if (child.Name == "UI")
-            {
-                PauseUI = (TextureRect)child.GetChild(0).GetChild(0).GetChild(1);
-            }
-        }
-
-
-
+        	var children = SceneManager.GetChildren();
+        	foreach (var child in children)
+        	{
+            		if (child.Name == "UI")
+            		{
+                		PauseUI = (TextureRect)child.GetChild(0).GetChild(0).GetChild(1);//Get pause menu node
+        	}
 		if (PauseUI.Name == "MainMenu")
 		{
 			PauseUI.Visible = true;
