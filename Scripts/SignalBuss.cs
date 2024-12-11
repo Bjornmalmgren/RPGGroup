@@ -3,6 +3,7 @@ using System;
 
 public partial class SignalBuss : Node
 {
+	//Here we define signals
 	[Signal]
 	public delegate void StartButtonPressedEventHandler();
 
@@ -35,13 +36,14 @@ public partial class SignalBuss : Node
 	public override void _Process(double delta)
 	{
 	}
-
+	//Each emit Sends out one of the signals created above
 	public void EmitStartButtonPressed()
 	{
 		
 		EmitSignal(nameof(StartButtonPressed));
 
 	}
+	
 	public void EmitPlayerAttack(Vector2 startPos, Vector2 Dest)
 	{
 		
