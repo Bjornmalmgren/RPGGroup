@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://q3d4jomqmhq6"]
 
 [ext_resource type="Script" path="res://Scripts/EnemyManager.cs" id="1_tyotx"]
-[ext_resource type="PackedScene" uid="uid://bf5ee3c2kmsf4" path="res://Scenes/Enemy.tscn" id="2_ww0nt"]
+[ext_resource type="PackedScene" uid="uid://dtukb2ogtndex" path="res://Scenes/Enemy.tscn" id="2_ww0nt"]
 [ext_resource type="PackedScene" uid="uid://bs1a1py3sq54b" path="res://Scenes/EnemyCultist.tscn" id="3_nb0pi"]
 
 [node name="EnemyManager" type="Node2D"]
