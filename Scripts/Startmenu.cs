@@ -17,17 +17,17 @@ public partial class Startmenu : MarginContainer
 	
 	void OnStartPressed()
 	{
-
+		//Sends signal through the signalbuss to tell the game to start
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitStartButtonPressed();
 
-		GD.Print("yes");
+		
 		
 
 	}
 	void OnQuitPressed()
 	{
-		GD.Print("no");
+		
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitQuit();
 	}
