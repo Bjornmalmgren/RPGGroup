@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://r6xnesrn7wl4"]
+[gd_scene load_steps=97 format=4 uid="uid://r6xnesrn7wl4"]
 
 [ext_resource type="Script" path="res://Scripts/ForestMap.cs" id="1_4f0b8"]
 [ext_resource type="Texture2D" uid="uid://yumbobo0fs3b" path="res://Sprites/isometric/ground_tiles_sheets/grass_medium_64x32.png" id="1_totfg"]
@@ -87,6 +87,7 @@
 [ext_resource type="Texture2D" uid="uid://d0nr1wu4nouym" path="res://Sprites/isometric/Bridge/SMallStoneBlock.png" id="85_if146"]
 [ext_resource type="Texture2D" uid="uid://ck8e7oavwpkcf" path="res://Sprites/isometric/Bridge/StoneBlock.png" id="86_mktk7"]
 [ext_resource type="Texture2D" uid="uid://c0gsja8liuodl" path="res://Sprites/isometric/Bridge/SmallStoneBlock2.png" id="87_qo07h"]
+[ext_resource type="Texture2D" uid="uid://dxt5ppqf1an3v" path="res://Sprites/isometric/crystal.png" id="88_373sb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ovvv2"]
 texture = ExtResource("1_totfg")
@@ -11031,5 +11032,10 @@ position = Vector2(-189, -1266)
 
 [node name="SpawnPointCultist3" type="Node2D" parent="SpawnPoints"]
 position = Vector2(-293, -1328)
+
+[node name="Crystal" type="Sprite2D" parent="."]
+position = Vector2(-321, -1285)
+scale = Vector2(0.109375, 0.12207)
+texture = ExtResource("88_373sb")
 
 [connection signal="body_entered" from="Area2D" to="." method="PlayerCollision"]
