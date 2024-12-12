@@ -91,37 +91,46 @@ public partial class GameManager : Node2D
 	}
 	void pauseGame()
 	{
+
+		var children = SceneManager.GetChildren();
 		
-			var children = SceneManager.GetChildren();
-			foreach (var child in children)
+		for (int i = 0; i < children.Count; i++)
+		{
+			GD.Print(children[2].Name);
+            if (children[i].Name == "UI")
 			{
-					if (child.Name == "UI")
-					{
-						PauseUI = (TextureRect)child.GetChild(0).GetChild(0).GetChild(1);//Get pause menu node
+				PauseUI = (TextureRect)children[i].GetChild(0).GetChild(0).GetChild(1);//Get pause menu node
+               
+            }else if(PauseUI != null)
+			{
+                if (PauseUI.Name == "MainMenu")
+                {
+                    PauseUI.Visible = true;
+                    GetTree().Paused = true;
+                }
+            }
+			
+			
+
+		}
+    }
+    void unpauseGame()
+		{
+
+			if (PauseUI.Name == "MainMenu")
+			{
+				PauseUI.Visible = false;
 			}
-		if (PauseUI.Name == "MainMenu")
-		{
-			PauseUI.Visible = true;
+			GetTree().Paused = false;
 		}
-		GetTree().Paused = true;
+		void saveGame()
+		{
+
+		}
+		void loadGame()
+		{
+
+		}
+
 		
-	}
-	void unpauseGame()
-	{
-
-		if (PauseUI.Name == "MainMenu")
-		{
-			PauseUI.Visible = false;
-		}
-		GetTree().Paused = false;
-	}
-	void saveGame()
-	{
-
-	}
-	void loadGame()
-	{
-
-	}
-	
 }
