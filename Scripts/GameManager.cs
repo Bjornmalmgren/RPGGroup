@@ -18,7 +18,7 @@ public partial class GameManager : Node2D
 	[Export]
 	VFXManager VFXManager { get; set; }
 
-	TextureRect PauseUI { get; set; }
+    TextureRect PauseUI { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	bool isPaused = false;
 	int frame = 0;
@@ -122,15 +122,15 @@ public partial class GameManager : Node2D
 				PauseUI.Visible = false;
 			}
 			GetTree().Paused = false;
-		}
-		void saveGame()
-		{
+	}
+	void saveGame()
+	{
 
-		}
-		void loadGame()
-		{
+	}
+	void loadGame()
+	{
 
-		}
+	}
 
 		
 }

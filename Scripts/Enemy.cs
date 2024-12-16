@@ -3,7 +3,7 @@ using System;
 
 public partial class Enemy : RigidBody2D
 {
-	int health;
+	public int health;
 	int speed;
 	int attackDamage;
 	int detectionRadius;
@@ -46,7 +46,7 @@ public partial class Enemy : RigidBody2D
 			this.QueueFree();
 		}
 	}
-	void reduceHealth(int amount)
+	public void reduceHealth(int amount)
 	{
 		health -= amount;
 		//GD.Print(health);

@@ -12,7 +12,10 @@
     <NoWarn>NU1605</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <!--Required for GdUnit4-->
-    <PackageReference Include="gdUnit4.api" Version="4.2.*" />
+    <!--Required for GdUnit4-->  
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="gdUnit4.api" Version="4.3.*" />
+    <PackageReference Include="gdUnit4.test.adapter" Version="2.*" />
+  
   </ItemGroup>
 </Project>

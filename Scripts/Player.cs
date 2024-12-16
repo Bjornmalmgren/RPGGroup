@@ -17,10 +17,11 @@ public partial class Player : CharacterBody2D
 		Callable calls = new Callable(this, MethodName.Attacked);
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
+
 	}
 	private void Attacked(int damage)
 	{
-
+		
 
 		health -= damage;
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
