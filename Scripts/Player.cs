@@ -21,9 +21,15 @@ public partial class Player : CharacterBody2D
 	}
 	private void Attacked(int damage)
 	{
-		
 
-		health -= damage;
+		if (damage < 0)
+		{
+            health += damage;
+        }
+		else {
+            health -= damage;
+        }
+		
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerLostHealth(health);
 

@@ -24,14 +24,22 @@ public partial class UnitTests
     [TestCase]
     public void ReduceHealthTest()
     {
-        
-       AssertInt(player.health).IsNotZero();
-       AssertInt(player.health).IsNotNegative();
+        AssertInt(player.health).IsNotZero();
+        signal.EmitPlayerAttacked(-25);
+
+        AssertInt(player.health).IsEqual(75);
+        signal.EmitPlayerAttacked(25);
+        AssertInt(player.health).IsEqual(50);
+
     }
     [TestCase]
     public void EnemyReduceHealthTest()
     {
-        AssertInt(enemy.health).IsNotNegative();
+        AssertInt(enemy.health).IsNotZero();
+        enemy.reduceHealth(-2);
+        AssertInt(enemy.health).IsEqual(10);
+        enemy.reduceHealth(-7);
+        AssertInt(enemy.health).IsEqual(3);
     }
     [TestCase]
     public void PlayerPositionTest()

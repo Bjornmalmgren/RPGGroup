@@ -1,9 +1,10 @@
 using Godot;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 public partial class Enemy : RigidBody2D
 {
-	public int health;
+	public int health = 12;
 	int speed;
 	int attackDamage;
 	int detectionRadius;
@@ -19,7 +20,7 @@ public partial class Enemy : RigidBody2D
 		//setting values and getting the area
 		startingPos = Position;
 		
-		health = 12;
+		
 		speed = 200;
 		attackDamage = 10;
 		detectionRadius = 100;
@@ -48,9 +49,16 @@ public partial class Enemy : RigidBody2D
 	}
 	public void reduceHealth(int amount)
 	{
-		health -= amount;
-		//GD.Print(health);
-	}
+        if (amount < 0)
+        {
+            health += amount;
+        }
+        else
+        {
+            health -= amount;
+        }
+        //GD.Print(health);
+    }
 	void lostTarget(Node2D body)
 	{
 		//GD.Print(body.Name);
