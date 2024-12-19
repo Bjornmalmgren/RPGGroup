@@ -17,12 +17,19 @@ public partial class Player : CharacterBody2D
 		Callable calls = new Callable(this, MethodName.Attacked);
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.Connect(SignalBuss.SignalName.PlayerAttacked, calls, (uint)GodotObject.ConnectFlags.Persist);
+
 	}
 	private void Attacked(int damage)
 	{
 
-
-		health -= damage;
+		if (damage < 0)
+		{
+            health += damage;
+        }
+		else {
+            health -= damage;
+        }
+		
 		var signalBuss = GetNode<SignalBuss>("/root/SignalBuss");
 		signalBuss.EmitPlayerLostHealth(health);
 
@@ -88,5 +95,17 @@ public partial class Player : CharacterBody2D
 		}
 		frame++;
 	}
-	
+    public void reduceHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            health += amount;
+        }
+        else
+        {
+            health -= amount;
+        }
+        //GD.Print(health);
+    }
+
 }

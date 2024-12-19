@@ -1,12 +1,18 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGDemo", "RPGDemo.csproj", "{B34A876C-E422-4AD1-8A13-26289C5EB2F0}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGDemo", "RPGDemo.csproj", "{B34A876C-E422-4AD1-8A13-26289C5EB2F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGDemoTests", "..\RPGDemoTests\RPGDemoTests.csproj", "{813B87C0-FCC7-47ED-9C7F-38129095176D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-	Debug|Any CPU = Debug|Any CPU
-	ExportDebug|Any CPU = ExportDebug|Any CPU
-	ExportRelease|Any CPU = ExportRelease|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		ExportDebug|Any CPU = ExportDebug|Any CPU
+		ExportRelease|Any CPU = ExportRelease|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -15,5 +21,18 @@ Global
 		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.Release|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{B34A876C-E422-4AD1-8A13-26289C5EB2F0}.Release|Any CPU.Build.0 = ExportRelease|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.ExportRelease|Any CPU.ActiveCfg = Release|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.ExportRelease|Any CPU.Build.0 = Release|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813B87C0-FCC7-47ED-9C7F-38129095176D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
