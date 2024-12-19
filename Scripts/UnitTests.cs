@@ -1,21 +1,24 @@
-using GdUnit4.Asserts;
 using Godot;
 using System;
 using GdUnit4;
 using static GdUnit4.Assertions;
+
 [TestSuite]
 public partial class UnitTests
 {
-
     static PackedScene scenePlayer = GD.Load<PackedScene>("res://Scenes/player.tscn");
     Player player = scenePlayer.Instantiate<Player>();
+
     static PackedScene sceneEnemy = GD.Load<PackedScene>("res://Scenes/Enemy.tscn");
     Enemy enemy = sceneEnemy.Instantiate<Enemy>();
 
     static PackedScene sceneVillage = GD.Load<PackedScene>("res://Scenes/VillageMap.tscn");
     villageScene village = sceneVillage.Instantiate<villageScene>();
+
     static PackedScene sceneForest = GD.Load<PackedScene>("res://Scenes/ForestMap.tscn");
     ForestMap forest = sceneForest.Instantiate<ForestMap>();
+
+    
 
     SignalBuss signal = new SignalBuss();
 
@@ -25,10 +28,10 @@ public partial class UnitTests
     public void ReduceHealthTest()
     {
         AssertInt(player.health).IsNotZero();
-        signal.EmitPlayerAttacked(-25);
+        player.reduceHealth(-25);
 
         AssertInt(player.health).IsEqual(75);
-        signal.EmitPlayerAttacked(25);
+        player.reduceHealth(25);
         AssertInt(player.health).IsEqual(50);
 
     }
@@ -50,16 +53,24 @@ public partial class UnitTests
     [TestCase]
     public void SignalTest()
     {
-
+        
         AssertSignal(enemy).IsSignalExists("body_entered");
         AssertSignal(enemy).IsSignalExists("body_exited");
-        AssertSignal(player).IsSignalExists("PlayerAttacked");
-        AssertSignal(player).IsSignalExists("PlayerAttack");
-        AssertSignal(player).IsSignalExists("PlayerLostHealth");
-        AssertSignal(player).IsSignalExists("PlayerDeath");
-        AssertSignal(enemy).IsSignalExists("EnemyHit");
-        AssertSignal(forest).IsSignalExists("ForestMapChange");
-        AssertSignal(village).IsSignalExists("VillageMapChange");
+        AssertSignal(signal).IsSignalExists("PlayerAttacked");
+        AssertSignal(signal).IsSignalExists("PlayerAttack");
+        AssertSignal(signal).IsSignalExists("EnemyHit");
+        AssertSignal(signal).IsSignalExists("PlayerLostHealth");
+        AssertSignal(signal).IsSignalExists("PlayerDeath");
+
+
+
+        AssertSignal(signal).IsSignalExists("ForestMapChange");
+        AssertSignal(signal).IsSignalExists("VillageMapChange");
+       
+        
+
+    
+
 
     }
 }

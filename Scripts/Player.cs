@@ -95,5 +95,17 @@ public partial class Player : CharacterBody2D
 		}
 		frame++;
 	}
-	
+    public void reduceHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            health += amount;
+        }
+        else
+        {
+            health -= amount;
+        }
+        //GD.Print(health);
+    }
+
 }
